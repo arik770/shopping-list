@@ -4,21 +4,15 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <title>רשימת קנייות</title>
-
-<!-- PWA -->
 <meta name="mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="apple-mobile-web-app-title" content="קנייות"/>
 <meta name="application-name" content="קנייות"/>
 <meta name="theme-color" content="#1e6b8a"/>
-<meta name="description" content="רשימת קנייות חכמה"/>
 <link rel="manifest" href="manifest.json"/>
-
-<!-- Icon -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e6b8a'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='white'%3E%F0%9F%9B%92%3C/text%3E%3C/svg%3E"/>
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e6b8a'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='white'%3E%F0%9F%9B%92%3C/text%3E%3C/svg%3E"/>
-
+<link rel="icon" href="icon-192.png"/>
+<link rel="apple-touch-icon" href="icon-192.png"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <style>
@@ -33,8 +27,6 @@ input,select,button,textarea{font-family:inherit}
 <div id="root"></div>
 <script>
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i.return) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
-function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
@@ -51,65 +43,29 @@ function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t =
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 const { useState, useEffect } = React;
 
-// ─── Storage ──────────────────────────────────────────────────────────────────
+// ─── Storage (localStorage) ──────────────────────────────────────────────────
 var KEYS = {
   catalog: "sl_catalog",
   lists: "sl_lists",
   archive: "sl_archive"
 };
-function load(_x) {
-  return _load.apply(this, arguments);
+function load(key) {
+  try {
+    var r = localStorage.getItem(key);
+    return r ? JSON.parse(r) : null;
+  } catch (_unused) {
+    return null;
+  }
 }
-function _load() {
-  _load = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(key) {
-    var r, _t;
-    return _regenerator().w(function (_context2) {
-      while (1) switch (_context2.p = _context2.n) {
-        case 0:
-          _context2.p = 0;
-          _context2.n = 1;
-          return window.storage.get(key);
-        case 1:
-          r = _context2.v;
-          return _context2.a(2, r ? JSON.parse(r.value) : null);
-        case 2:
-          _context2.p = 2;
-          _t = _context2.v;
-          return _context2.a(2, null);
-      }
-    }, _callee2, null, [[0, 2]]);
-  }));
-  return _load.apply(this, arguments);
+function save(key, val) {
+  try {
+    localStorage.setItem(key, JSON.stringify(val));
+  } catch (_unused2) {}
 }
-function save(_x2, _x3) {
-  return _save.apply(this, arguments);
-} // ─── Price helpers ────────────────────────────────────────────────────────────
-function _save() {
-  _save = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(key, val) {
-    var _t2;
-    return _regenerator().w(function (_context3) {
-      while (1) switch (_context3.p = _context3.n) {
-        case 0:
-          _context3.p = 0;
-          _context3.n = 1;
-          return window.storage.set(key, JSON.stringify(val));
-        case 1:
-          _context3.n = 3;
-          break;
-        case 2:
-          _context3.p = 2;
-          _t2 = _context3.v;
-        case 3:
-          return _context3.a(2);
-      }
-    }, _callee3, null, [[0, 2]]);
-  }));
-  return _save.apply(this, arguments);
-}
+
+// ─── Price helpers ────────────────────────────────────────────────────────────
 var uid = function uid() {
   return Math.random().toString(36).slice(2, 9);
 };
@@ -1953,107 +1909,81 @@ function App() {
     _useState34 = _slicedToArray(_useState33, 2),
     tab = _useState34[0],
     setTab = _useState34[1];
-  var _useState35 = useState([]),
+  var _useState35 = useState(function () {
+      return load(KEYS.catalog) || [];
+    }),
     _useState36 = _slicedToArray(_useState35, 2),
     catalog = _useState36[0],
     setCatalog = _useState36[1];
-  var _useState37 = useState([]),
+  var _useState37 = useState(function () {
+      return load(KEYS.lists) || [];
+    }),
     _useState38 = _slicedToArray(_useState37, 2),
     lists = _useState38[0],
     setLists = _useState38[1];
-  var _useState39 = useState([]),
+  var _useState39 = useState(function () {
+      return load(KEYS.archive) || [];
+    }),
     _useState40 = _slicedToArray(_useState39, 2),
     archive = _useState40[0],
     setArchive = _useState40[1];
-  var _useState41 = useState(false),
+  var _useState41 = useState(null),
     _useState42 = _slicedToArray(_useState41, 2),
-    loaded = _useState42[0],
-    setLoaded = _useState42[1];
+    editItem = _useState42[0],
+    setEditItem = _useState42[1];
   var _useState43 = useState(null),
     _useState44 = _slicedToArray(_useState43, 2),
-    editItem = _useState44[0],
-    setEditItem = _useState44[1];
+    addToList = _useState44[0],
+    setAddToList = _useState44[1];
   var _useState45 = useState(null),
     _useState46 = _slicedToArray(_useState45, 2),
-    addToList = _useState46[0],
-    setAddToList = _useState46[1];
+    editListEntry = _useState46[0],
+    setEditListEntry = _useState46[1];
   var _useState47 = useState(null),
     _useState48 = _slicedToArray(_useState47, 2),
-    editListEntry = _useState48[0],
-    setEditListEntry = _useState48[1];
-  var _useState49 = useState(null),
+    confirmDialog = _useState48[0],
+    setConfirmDialog = _useState48[1];
+  var _useState49 = useState(false),
     _useState50 = _slicedToArray(_useState49, 2),
-    confirmDialog = _useState50[0],
-    setConfirmDialog = _useState50[1];
+    finishModal = _useState50[0],
+    setFinishModal = _useState50[1];
   var _useState51 = useState(false),
     _useState52 = _slicedToArray(_useState51, 2),
-    finishModal = _useState52[0],
-    setFinishModal = _useState52[1];
-  var _useState53 = useState(false),
+    showStats = _useState52[0],
+    setShowStats = _useState52[1];
+  var _useState53 = useState({}),
     _useState54 = _slicedToArray(_useState53, 2),
-    showStats = _useState54[0],
-    setShowStats = _useState54[1];
-  var _useState55 = useState({}),
+    openArchive = _useState54[0],
+    setOpenArchive = _useState54[1];
+  var _useState55 = useState(""),
     _useState56 = _slicedToArray(_useState55, 2),
-    openArchive = _useState56[0],
-    setOpenArchive = _useState56[1];
+    catSearch = _useState56[0],
+    setCatSearch = _useState56[1];
   var _useState57 = useState(""),
     _useState58 = _slicedToArray(_useState57, 2),
-    catSearch = _useState58[0],
-    setCatSearch = _useState58[1];
-  var _useState59 = useState(""),
+    filterCat = _useState58[0],
+    setFilterCat = _useState58[1];
+  var _useState59 = useState(null),
     _useState60 = _slicedToArray(_useState59, 2),
-    filterCat = _useState60[0],
-    setFilterCat = _useState60[1];
+    dragIdx = _useState60[0],
+    setDragIdx = _useState60[1];
   var _useState61 = useState(null),
     _useState62 = _slicedToArray(_useState61, 2),
-    dragIdx = _useState62[0],
-    setDragIdx = _useState62[1];
+    dragOver = _useState62[0],
+    setDragOver = _useState62[1];
   var _useState63 = useState(null),
     _useState64 = _slicedToArray(_useState63, 2),
-    dragOver = _useState64[0],
-    setDragOver = _useState64[1];
-  var _useState65 = useState(null),
-    _useState66 = _slicedToArray(_useState65, 2),
-    dragList = _useState66[0],
-    setDragList = _useState66[1];
+    dragList = _useState64[0],
+    setDragList = _useState64[1];
   useEffect(function () {
-    _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var c, l, a;
-      return _regenerator().w(function (_context) {
-        while (1) switch (_context.n) {
-          case 0:
-            _context.n = 1;
-            return load(KEYS.catalog);
-          case 1:
-            c = _context.v;
-            if (c) setCatalog(c);
-            _context.n = 2;
-            return load(KEYS.lists);
-          case 2:
-            l = _context.v;
-            if (l) setLists(l);
-            _context.n = 3;
-            return load(KEYS.archive);
-          case 3:
-            a = _context.v;
-            if (a) setArchive(a);
-            setLoaded(true);
-          case 4:
-            return _context.a(2);
-        }
-      }, _callee);
-    }))();
-  }, []);
+    save(KEYS.catalog, catalog);
+  }, [catalog]);
   useEffect(function () {
-    if (loaded) save(KEYS.catalog, catalog);
-  }, [catalog, loaded]);
+    save(KEYS.lists, lists);
+  }, [lists]);
   useEffect(function () {
-    if (loaded) save(KEYS.lists, lists);
-  }, [lists, loaded]);
-  useEffect(function () {
-    if (loaded) save(KEYS.archive, archive);
-  }, [archive, loaded]);
+    save(KEYS.archive, archive);
+  }, [archive]);
   var categories = _toConsumableArray(new Set(catalog.map(function (i) {
     return i.category;
   }).filter(Boolean)));
@@ -2199,13 +2129,13 @@ function App() {
     var actual = toArchive.reduce(function (s, e) {
       return s + calcItemActualPrice(e);
     }, 0);
-    var storeLabel = selectedStores ? Object.entries(selectedStores).filter(function (_ref12) {
-      var _ref13 = _slicedToArray(_ref12, 2),
-        v = _ref13[1];
+    var storeLabel = selectedStores ? Object.entries(selectedStores).filter(function (_ref11) {
+      var _ref12 = _slicedToArray(_ref11, 2),
+        v = _ref12[1];
       return v;
-    }).map(function (_ref14) {
-      var _ref15 = _slicedToArray(_ref14, 1),
-        k = _ref15[0];
+    }).map(function (_ref13) {
+      var _ref14 = _slicedToArray(_ref13, 1),
+        k = _ref14[0];
       return k || "ללא חנות";
     }).join(", ") : "";
     setArchive(function (prev) {
@@ -2369,10 +2299,10 @@ function App() {
   };
 
   // Reusable list-entry row renderer
-  var EntryRow = function EntryRow(_ref16) {
-    var entry = _ref16.entry,
-      idx = _ref16.idx,
-      draggableIdx = _ref16.draggableIdx;
+  var EntryRow = function EntryRow(_ref15) {
+    var entry = _ref15.entry,
+      idx = _ref15.idx,
+      draggableIdx = _ref15.draggableIdx;
     var st = entry.status || "none";
     var rowBg = st === "green" ? "#f0fdf4" : st === "yellow" ? "#fffbeb" : st === "red" ? "#fff1f2" : "#fff";
     var di = draggableIdx != null ? draggableIdx : idx;
