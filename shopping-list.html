@@ -1,0 +1,3225 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>רשימת קנייות</title>
+
+<!-- PWA -->
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="קנייות"/>
+<meta name="application-name" content="קנייות"/>
+<meta name="theme-color" content="#1e6b8a"/>
+<meta name="description" content="רשימת קנייות חכמה"/>
+<link rel="manifest" href="manifest.json"/>
+
+<!-- Icon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e6b8a'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='white'%3E%F0%9F%9B%92%3C/text%3E%3C/svg%3E"/>
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e6b8a'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='white'%3E%F0%9F%9B%92%3C/text%3E%3C/svg%3E"/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f8fafc;direction:rtl}
+input,select,button,textarea{font-family:inherit}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i.return) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+const { useState, useEffect } = React;
+
+// ─── Storage ──────────────────────────────────────────────────────────────────
+var KEYS = {
+  catalog: "sl_catalog",
+  lists: "sl_lists",
+  archive: "sl_archive"
+};
+function load(_x) {
+  return _load.apply(this, arguments);
+}
+function _load() {
+  _load = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(key) {
+    var r, _t;
+    return _regenerator().w(function (_context2) {
+      while (1) switch (_context2.p = _context2.n) {
+        case 0:
+          _context2.p = 0;
+          _context2.n = 1;
+          return window.storage.get(key);
+        case 1:
+          r = _context2.v;
+          return _context2.a(2, r ? JSON.parse(r.value) : null);
+        case 2:
+          _context2.p = 2;
+          _t = _context2.v;
+          return _context2.a(2, null);
+      }
+    }, _callee2, null, [[0, 2]]);
+  }));
+  return _load.apply(this, arguments);
+}
+function save(_x2, _x3) {
+  return _save.apply(this, arguments);
+} // ─── Price helpers ────────────────────────────────────────────────────────────
+function _save() {
+  _save = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(key, val) {
+    var _t2;
+    return _regenerator().w(function (_context3) {
+      while (1) switch (_context3.p = _context3.n) {
+        case 0:
+          _context3.p = 0;
+          _context3.n = 1;
+          return window.storage.set(key, JSON.stringify(val));
+        case 1:
+          _context3.n = 3;
+          break;
+        case 2:
+          _context3.p = 2;
+          _t2 = _context3.v;
+        case 3:
+          return _context3.a(2);
+      }
+    }, _callee3, null, [[0, 2]]);
+  }));
+  return _save.apply(this, arguments);
+}
+var uid = function uid() {
+  return Math.random().toString(36).slice(2, 9);
+};
+var fmt = function fmt(n) {
+  return "₪" + Number(n).toFixed(2);
+};
+function calcRegularPrice(price, bulk, qty) {
+  if (!bulk || !bulk.qty || !bulk.price) return price * qty;
+  var packs = Math.floor(qty / bulk.qty);
+  var rem = qty % bulk.qty;
+  return packs * bulk.price + rem * price;
+}
+function calcItemActualPrice(entry) {
+  var st = entry.status || "none";
+  if (st === "red" || st === "none") return 0;
+  var qty = st === "yellow" ? entry.actualQty || 0 : entry.qty;
+  if (qty === 0) return 0;
+  return calcRegularPrice(entry.storePrice != null ? entry.storePrice : entry.price, entry.storeBulk != null ? entry.storeBulk : entry.bulk, qty);
+}
+
+// ─── Traffic light ────────────────────────────────────────────────────────────
+function nextStatus(current, qty) {
+  if (qty <= 1) return {
+    none: "green",
+    green: "red",
+    red: "none"
+  }[current] || "none";
+  return {
+    none: "green",
+    green: "yellow",
+    yellow: "red",
+    red: "none"
+  }[current] || "none";
+}
+var S_COLOR = {
+  none: "#cbd5e1",
+  green: "#16a34a",
+  yellow: "#d97706",
+  red: "#dc2626"
+};
+var S_BG = {
+  none: "#f8fafc",
+  green: "#f0fdf4",
+  yellow: "#fffbeb",
+  red: "#fff1f2"
+};
+var S_ICON = {
+  none: "○",
+  green: "●",
+  yellow: "◑",
+  red: "●"
+};
+var A_ICON = {
+  none: "⚪",
+  green: "🟢",
+  yellow: "🟡",
+  red: "🔴"
+};
+var A_LBL = {
+  none: "—",
+  green: "נקנה",
+  yellow: "חלקי",
+  red: "לא נקנה"
+};
+
+// ─── Store helpers ────────────────────────────────────────────────────────────
+var blankStore = function blankStore() {
+  return {
+    name: "",
+    price: "",
+    hasBulk: false,
+    bulkQty: "",
+    bulkPrice: ""
+  };
+};
+function normalizeStores(raw) {
+  if (!raw || !raw.length) return [blankStore()];
+  if (typeof raw[0] === "string") return raw.map(function (s) {
+    return _objectSpread(_objectSpread({}, blankStore()), {}, {
+      name: s
+    });
+  });
+  return raw.map(function (s) {
+    return _objectSpread(_objectSpread({}, blankStore()), s);
+  });
+}
+function getStorePricing(item, storeName) {
+  var _item$stores;
+  if (item.sharedPricing !== false || !((_item$stores = item.stores) !== null && _item$stores !== void 0 && _item$stores.length) || typeof item.stores[0] === "string") return {
+    price: item.price || 0,
+    bulk: item.bulk || null
+  };
+  var s = item.stores.find(function (st) {
+    return st.name === storeName;
+  });
+  if (!s) return {
+    price: item.price || 0,
+    bulk: item.bulk || null
+  };
+  return {
+    price: parseFloat(s.price) || 0,
+    bulk: s.hasBulk && s.bulkQty && s.bulkPrice ? {
+      qty: parseInt(s.bulkQty),
+      price: parseFloat(s.bulkPrice)
+    } : null
+  };
+}
+
+// ─── Shared style token ───────────────────────────────────────────────────────
+var inp = {
+  width: "100%",
+  padding: "7px 10px",
+  border: "1.5px solid #e2e8f0",
+  borderRadius: 7,
+  fontSize: 13,
+  outline: "none",
+  boxSizing: "border-box",
+  fontFamily: "inherit",
+  direction: "rtl"
+};
+
+// ─── ConfirmDialog ────────────────────────────────────────────────────────────
+function ConfirmDialog(_ref) {
+  var message = _ref.message,
+    onConfirm = _ref.onConfirm,
+    onCancel = _ref.onCancel;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "fixed",
+      inset: 0,
+      background: "rgba(0,0,0,.5)",
+      zIndex: 1100,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "#fff",
+      borderRadius: 14,
+      padding: 24,
+      maxWidth: 320,
+      width: "100%",
+      boxShadow: "0 20px 60px rgba(0,0,0,.3)",
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 20px",
+      fontSize: 14,
+      color: "#1e293b",
+      lineHeight: 1.5
+    }
+  }, message), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: onConfirm,
+    style: {
+      flex: 1,
+      background: "#2d9b5a",
+      color: "#fff",
+      border: "none",
+      borderRadius: 9,
+      padding: "10px 0",
+      fontSize: 14,
+      fontWeight: 700,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u05D0\u05D9\u05E9\u05D5\u05E8"), /*#__PURE__*/React.createElement("button", {
+    onClick: onCancel,
+    style: {
+      flex: 1,
+      background: "#f1f5f9",
+      color: "#475569",
+      border: "none",
+      borderRadius: 9,
+      padding: "10px 0",
+      fontSize: 14,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u05D1\u05D9\u05D8\u05D5\u05DC"))));
+}
+
+// ─── TrafficLight ─────────────────────────────────────────────────────────────
+function TrafficLight(_ref2) {
+  var status = _ref2.status,
+    onClick = _ref2.onClick;
+  var s = status || "none";
+  return /*#__PURE__*/React.createElement("button", {
+    onClick: onClick,
+    style: {
+      width: 32,
+      height: 32,
+      borderRadius: "50%",
+      border: "2px solid ".concat(S_COLOR[s]),
+      background: S_BG[s],
+      cursor: "pointer",
+      fontSize: 16,
+      color: S_COLOR[s],
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexShrink: 0,
+      transition: "all .15s",
+      fontFamily: "inherit"
+    }
+  }, S_ICON[s]);
+}
+
+// ─── DragHandle ───────────────────────────────────────────────────────────────
+function DragHandle(props) {
+  return /*#__PURE__*/React.createElement("span", _extends({}, props, {
+    style: {
+      cursor: "grab",
+      color: "#cbd5e1",
+      fontSize: 18,
+      userSelect: "none",
+      lineHeight: 1,
+      flexShrink: 0
+    }
+  }), "\u283F");
+}
+
+// ─── Modal ────────────────────────────────────────────────────────────────────
+function Modal(_ref3) {
+  var title = _ref3.title,
+    onClose = _ref3.onClose,
+    children = _ref3.children;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "fixed",
+      inset: 0,
+      background: "rgba(0,0,0,.45)",
+      zIndex: 999,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "#fff",
+      borderRadius: 14,
+      width: "100%",
+      maxWidth: 480,
+      maxHeight: "90vh",
+      overflow: "auto",
+      boxShadow: "0 20px 60px rgba(0,0,0,.25)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      padding: "16px 20px 12px",
+      borderBottom: "1px solid #e2e8f0"
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      margin: 0,
+      fontSize: 16,
+      fontWeight: 700,
+      color: "#1e293b"
+    }
+  }, title), /*#__PURE__*/React.createElement("button", {
+    onClick: onClose,
+    style: {
+      background: "none",
+      border: "none",
+      fontSize: 22,
+      cursor: "pointer",
+      color: "#64748b"
+    }
+  }, "\xD7")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: 18
+    }
+  }, children)));
+}
+
+// ─── Field ────────────────────────────────────────────────────────────────────
+function Field(_ref4) {
+  var label = _ref4.label,
+    children = _ref4.children;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 13
+    }
+  }, label && /*#__PURE__*/React.createElement("label", {
+    style: {
+      display: "block",
+      fontSize: 12,
+      fontWeight: 600,
+      color: "#475569",
+      marginBottom: 5
+    }
+  }, label), children);
+}
+
+// ─── CatalogItemForm ──────────────────────────────────────────────────────────
+function CatalogItemForm(_ref5) {
+  var _item$bulk, _item$stores2;
+  var item = _ref5.item,
+    categories = _ref5.categories,
+    allStores = _ref5.allStores,
+    onSave = _ref5.onSave,
+    onClose = _ref5.onClose;
+  var _useState = useState((item === null || item === void 0 ? void 0 : item.name) || ""),
+    _useState2 = _slicedToArray(_useState, 2),
+    name = _useState2[0],
+    setName = _useState2[1];
+  var _useState3 = useState(item && item.price != null ? item.price : ""),
+    _useState4 = _slicedToArray(_useState3, 2),
+    price = _useState4[0],
+    setPrice = _useState4[1];
+  var _useState5 = useState((item === null || item === void 0 ? void 0 : item.category) || ""),
+    _useState6 = _slicedToArray(_useState5, 2),
+    category = _useState6[0],
+    setCat = _useState6[1];
+  var _useState7 = useState(""),
+    _useState8 = _slicedToArray(_useState7, 2),
+    newCat = _useState8[0],
+    setNewCat = _useState8[1];
+  var _useState9 = useState(!!(item !== null && item !== void 0 && (_item$bulk = item.bulk) !== null && _item$bulk !== void 0 && _item$bulk.qty)),
+    _useState0 = _slicedToArray(_useState9, 2),
+    hasBulk = _useState0[0],
+    setHasBulk = _useState0[1];
+  var _useState1 = useState(item && item.bulk && item.bulk.qty != null ? item.bulk.qty : ""),
+    _useState10 = _slicedToArray(_useState1, 2),
+    bulkQty = _useState10[0],
+    setBulkQty = _useState10[1];
+  var _useState11 = useState(item && item.bulk && item.bulk.price != null ? item.bulk.price : ""),
+    _useState12 = _slicedToArray(_useState11, 2),
+    bulkPrice = _useState12[0],
+    setBulkPr = _useState12[1];
+  var _useState13 = useState(normalizeStores(item === null || item === void 0 ? void 0 : item.stores)),
+    _useState14 = _slicedToArray(_useState13, 2),
+    stores = _useState14[0],
+    setStores = _useState14[1];
+  var _useState15 = useState(!(item !== null && item !== void 0 && (_item$stores2 = item.stores) !== null && _item$stores2 !== void 0 && _item$stores2.length) || typeof item.stores[0] === "string" || item.stores.every(function (s) {
+      return !s.price;
+    })),
+    _useState16 = _slicedToArray(_useState15, 2),
+    shared = _useState16[0],
+    setShared = _useState16[1];
+  var multi = stores.length > 1;
+  var addStore = function addStore() {
+    return setStores(function (s) {
+      return [].concat(_toConsumableArray(s), [blankStore()]);
+    });
+  };
+  var removeStore = function removeStore(i) {
+    return setStores(function (s) {
+      return s.filter(function (_, j) {
+        return j !== i;
+      });
+    });
+  };
+  var updName = function updName(i, v) {
+    return setStores(function (s) {
+      var a = _toConsumableArray(s);
+      a[i] = _objectSpread(_objectSpread({}, a[i]), {}, {
+        name: v
+      });
+      return a;
+    });
+  };
+  var updField = function updField(i, f, v) {
+    return setStores(function (s) {
+      var a = _toConsumableArray(s);
+      a[i] = _objectSpread(_objectSpread({}, a[i]), {}, _defineProperty({}, f, v));
+      return a;
+    });
+  };
+  var submit = function submit() {
+    if (!name.trim()) {
+      alert("יש להזין שם מוצר");
+      return;
+    }
+    var filteredStores = stores.map(function (s) {
+      return _objectSpread(_objectSpread({}, s), {}, {
+        name: s.name.trim()
+      });
+    }).filter(function (s) {
+      return s.name;
+    });
+    var globalBulk = hasBulk && bulkQty && bulkPrice ? {
+      qty: parseInt(bulkQty),
+      price: parseFloat(bulkPrice)
+    } : null;
+    onSave({
+      id: (item === null || item === void 0 ? void 0 : item.id) || uid(),
+      name: name.trim(),
+      price: parseFloat(price) || 0,
+      bulk: globalBulk,
+      stores: filteredStores,
+      sharedPricing: !multi || shared,
+      category: newCat.trim() || category
+    });
+    onClose();
+  };
+  var btnRow = function btnRow(active, onClick, label) {
+    return /*#__PURE__*/React.createElement("button", {
+      onClick: onClick,
+      style: {
+        flex: 1,
+        padding: "7px 0",
+        borderRadius: 8,
+        border: "1.5px solid ".concat(active ? "#1e6b8a" : "#e2e8f0"),
+        background: active ? "#e0f2fe" : "#f8fafc",
+        color: active ? "#1e6b8a" : "#64748b",
+        fontWeight: active ? 700 : 500,
+        cursor: "pointer",
+        fontSize: 12,
+        fontFamily: "inherit"
+      }
+    }, label);
+  };
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Field, {
+    label: "\u05E9\u05DD \u05DE\u05D5\u05E6\u05E8 *"
+  }, /*#__PURE__*/React.createElement("input", {
+    style: inp,
+    value: name,
+    onChange: function onChange(e) {
+      return setName(e.target.value);
+    },
+    placeholder: "\u05DC\u05DE\u05E9\u05DC: \u05D7\u05DC\u05D1 3%",
+    autoFocus: true
+  })), /*#__PURE__*/React.createElement(Field, {
+    label: "\u05E7\u05D8\u05D2\u05D5\u05E8\u05D9\u05D4"
+  }, /*#__PURE__*/React.createElement("select", {
+    style: inp,
+    value: category,
+    onChange: function onChange(e) {
+      return setCat(e.target.value);
+    }
+  }, /*#__PURE__*/React.createElement("option", {
+    value: ""
+  }, "\u05DC\u05DC\u05D0 \u05E7\u05D8\u05D2\u05D5\u05E8\u05D9\u05D4"), categories.map(function (c) {
+    return /*#__PURE__*/React.createElement("option", {
+      key: c,
+      value: c
+    }, c);
+  })), /*#__PURE__*/React.createElement("input", {
+    style: _objectSpread(_objectSpread({}, inp), {}, {
+      marginTop: 6
+    }),
+    value: newCat,
+    onChange: function onChange(e) {
+      return setNewCat(e.target.value);
+    },
+    placeholder: "\u05D0\u05D5 \u05D4\u05D5\u05E1\u05E3 \u05E7\u05D8\u05D2\u05D5\u05E8\u05D9\u05D4 \u05D7\u05D3\u05E9\u05D4..."
+  })), /*#__PURE__*/React.createElement(Field, {
+    label: "\u05D7\u05E0\u05D5\u05D9\u05D5\u05EA"
+  }, stores.map(function (s, i) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: i,
+      style: {
+        display: "flex",
+        gap: 6,
+        marginBottom: 6,
+        alignItems: "center"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1,
+        position: "relative"
+      }
+    }, /*#__PURE__*/React.createElement("input", {
+      list: "stores-list-".concat(i),
+      style: _objectSpread(_objectSpread({}, inp), {}, {
+        width: "100%"
+      }),
+      value: s.name,
+      onChange: function onChange(e) {
+        return updName(i, e.target.value);
+      },
+      placeholder: "\u05D1\u05D7\u05E8 \u05D0\u05D5 \u05D4\u05E7\u05DC\u05D3 \u05D7\u05E0\u05D5\u05EA \u05D7\u05D3\u05E9\u05D4"
+    }), /*#__PURE__*/React.createElement("datalist", {
+      id: "stores-list-".concat(i)
+    }, allStores.filter(function (n) {
+      return !stores.some(function (st, j) {
+        return j !== i && st.name === n;
+      });
+    }).map(function (n) {
+      return /*#__PURE__*/React.createElement("option", {
+        key: n,
+        value: n
+      });
+    }))), stores.length > 1 && /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick() {
+        return removeStore(i);
+      },
+      style: {
+        background: "#fee2e2",
+        border: "none",
+        borderRadius: 7,
+        padding: "0 10px",
+        cursor: "pointer",
+        color: "#ef4444",
+        fontWeight: 700,
+        fontSize: 16,
+        height: 34,
+        flexShrink: 0
+      }
+    }, "\xD7"));
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: addStore,
+    style: {
+      background: "none",
+      border: "1.5px dashed #cbd5e1",
+      borderRadius: 7,
+      padding: "6px 12px",
+      cursor: "pointer",
+      color: "#64748b",
+      fontSize: 12,
+      width: "100%",
+      fontFamily: "inherit"
+    }
+  }, "+ \u05D4\u05D5\u05E1\u05E3 \u05D7\u05E0\u05D5\u05EA")), multi && /*#__PURE__*/React.createElement(Field, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6
+    }
+  }, btnRow(shared, function () {
+    return setShared(true);
+  }, "מחיר אחיד לכל החנויות"), btnRow(!shared, function () {
+    return setShared(false);
+  }, "מחיר נפרד לכל חנות"))), (!multi || shared) && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Field, {
+    label: multi ? "מחיר יחידה — לכל החנויות (₪)" : "מחיר יחידה (₪)"
+  }, /*#__PURE__*/React.createElement("input", {
+    style: inp,
+    type: "number",
+    min: "0",
+    step: "0.01",
+    value: price,
+    onChange: function onChange(e) {
+      return setPrice(e.target.value);
+    },
+    placeholder: "0.00"
+  })), /*#__PURE__*/React.createElement(Field, null, /*#__PURE__*/React.createElement("label", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      cursor: "pointer",
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    checked: hasBulk,
+    onChange: function onChange(e) {
+      return setHasBulk(e.target.checked);
+    },
+    style: {
+      width: 16,
+      height: 16
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 600,
+      color: "#475569",
+      fontSize: 13
+    }
+  }, "\u05DE\u05D7\u05D9\u05E8 \u05DB\u05DE\u05D5\u05EA \u05DE\u05D9\u05D5\u05D7\u05D3", multi ? " — לכל החנויות" : "")), hasBulk && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement("label", {
+    style: {
+      fontSize: 11,
+      fontWeight: 600,
+      color: "#475569",
+      display: "block",
+      marginBottom: 4
+    }
+  }, "\u05DB\u05DE\u05D5\u05EA \u05D1\u05D7\u05D1\u05D9\u05DC\u05D4"), /*#__PURE__*/React.createElement("input", {
+    style: inp,
+    type: "number",
+    min: "2",
+    value: bulkQty,
+    onChange: function onChange(e) {
+      return setBulkQty(e.target.value);
+    },
+    placeholder: "4"
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement("label", {
+    style: {
+      fontSize: 11,
+      fontWeight: 600,
+      color: "#475569",
+      display: "block",
+      marginBottom: 4
+    }
+  }, "\u05DE\u05D7\u05D9\u05E8 \u05DC\u05D7\u05D1\u05D9\u05DC\u05D4 (\u20AA)"), /*#__PURE__*/React.createElement("input", {
+    style: inp,
+    type: "number",
+    min: "0",
+    step: "0.01",
+    value: bulkPrice,
+    onChange: function onChange(e) {
+      return setBulkPr(e.target.value);
+    },
+    placeholder: "15.00"
+  }))), bulkQty && bulkPrice && price && /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "8px 0 0",
+      fontSize: 12,
+      color: "#1e6b8a",
+      background: "#e0f2fe",
+      padding: "7px 10px",
+      borderRadius: 7
+    }
+  }, bulkQty, " \u05D1-", fmt(bulkPrice), " \xB7 \u05D7\u05D9\u05E1\u05DB\u05D5\u05DF ", fmt(price * bulkQty - bulkPrice))))), multi && !shared && stores.map(function (s, i) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: i,
+      style: {
+        background: "#f8fafc",
+        borderRadius: 10,
+        padding: "12px 14px",
+        marginBottom: 10,
+        border: "1.5px solid #e2e8f0"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontWeight: 700,
+        color: "#1e293b",
+        marginBottom: 8,
+        fontSize: 13
+      }
+    }, "\uD83C\uDFEA ", s.name || "\u05D7\u05E0\u05D5\u05EA ".concat(i + 1)), /*#__PURE__*/React.createElement(Field, {
+      label: "\u05DE\u05D7\u05D9\u05E8 \u05D9\u05D7\u05D9\u05D3\u05D4 (\u20AA)"
+    }, /*#__PURE__*/React.createElement("input", {
+      style: inp,
+      type: "number",
+      min: "0",
+      step: "0.01",
+      value: s.price,
+      onChange: function onChange(e) {
+        return updField(i, "price", e.target.value);
+      },
+      placeholder: "0.00"
+    })), /*#__PURE__*/React.createElement("label", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 7,
+        cursor: "pointer",
+        marginBottom: s.hasBulk ? 8 : 0,
+        fontSize: 12
+      }
+    }, /*#__PURE__*/React.createElement("input", {
+      type: "checkbox",
+      checked: !!s.hasBulk,
+      onChange: function onChange(e) {
+        return updField(i, "hasBulk", e.target.checked);
+      },
+      style: {
+        width: 15,
+        height: 15
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontWeight: 600,
+        color: "#475569"
+      }
+    }, "\u05DE\u05D7\u05D9\u05E8 \u05DB\u05DE\u05D5\u05EA \u05DE\u05D9\u05D5\u05D7\u05D3")), s.hasBulk && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 8,
+        marginTop: 6
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1
+      }
+    }, /*#__PURE__*/React.createElement("label", {
+      style: {
+        fontSize: 11,
+        fontWeight: 600,
+        color: "#475569",
+        display: "block",
+        marginBottom: 3
+      }
+    }, "\u05DB\u05DE\u05D5\u05EA"), /*#__PURE__*/React.createElement("input", {
+      style: inp,
+      type: "number",
+      min: "2",
+      value: s.bulkQty,
+      onChange: function onChange(e) {
+        return updField(i, "bulkQty", e.target.value);
+      },
+      placeholder: "4"
+    })), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1
+      }
+    }, /*#__PURE__*/React.createElement("label", {
+      style: {
+        fontSize: 11,
+        fontWeight: 600,
+        color: "#475569",
+        display: "block",
+        marginBottom: 3
+      }
+    }, "\u05DE\u05D7\u05D9\u05E8 \u05D7\u05D1\u05D9\u05DC\u05D4 (\u20AA)"), /*#__PURE__*/React.createElement("input", {
+      style: inp,
+      type: "number",
+      min: "0",
+      step: "0.01",
+      value: s.bulkPrice,
+      onChange: function onChange(e) {
+        return updField(i, "bulkPrice", e.target.value);
+      },
+      placeholder: "15.00"
+    }))), s.hasBulk && s.bulkQty && s.bulkPrice && s.price && /*#__PURE__*/React.createElement("p", {
+      style: {
+        margin: "6px 0 0",
+        fontSize: 11,
+        color: "#1e6b8a",
+        background: "#e0f2fe",
+        padding: "5px 9px",
+        borderRadius: 7
+      }
+    }, s.bulkQty, " \u05D1-", fmt(s.bulkPrice), " \xB7 \u05D7\u05D9\u05E1\u05DB\u05D5\u05DF ", fmt(s.price * s.bulkQty - s.bulkPrice)));
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10,
+      marginTop: 6
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: submit,
+    style: {
+      flex: 1,
+      background: "#1e6b8a",
+      color: "#fff",
+      border: "none",
+      borderRadius: 9,
+      padding: "11px 0",
+      fontSize: 14,
+      fontWeight: 700,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u05E9\u05DE\u05D5\u05E8"), /*#__PURE__*/React.createElement("button", {
+    onClick: onClose,
+    style: {
+      flex: 1,
+      background: "#f1f5f9",
+      color: "#475569",
+      border: "none",
+      borderRadius: 9,
+      padding: "11px 0",
+      fontSize: 14,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u05D1\u05D9\u05D8\u05D5\u05DC")));
+}
+
+// ─── AddToListModal ───────────────────────────────────────────────────────────
+function AddToListModal(_ref6) {
+  var _item$stores3;
+  var item = _ref6.item,
+    onAdd = _ref6.onAdd,
+    onClose = _ref6.onClose;
+  var storeNames = ((_item$stores3 = item.stores) === null || _item$stores3 === void 0 ? void 0 : _item$stores3.map(function (s) {
+    return typeof s === "string" ? s : s.name;
+  }).filter(Boolean)) || [];
+  var _useState17 = useState(storeNames[0] || ""),
+    _useState18 = _slicedToArray(_useState17, 2),
+    storeName = _useState18[0],
+    setStoreName = _useState18[1];
+  var _useState19 = useState(false),
+    _useState20 = _slicedToArray(_useState19, 2),
+    useBulk = _useState20[0],
+    setUseBulk = _useState20[1];
+  var _useState21 = useState(1),
+    _useState22 = _slicedToArray(_useState21, 2),
+    bulkPacks = _useState22[0],
+    setBulkPacks = _useState22[1];
+  var _useState23 = useState(1),
+    _useState24 = _slicedToArray(_useState23, 2),
+    regularQty = _useState24[0],
+    setRegularQty = _useState24[1];
+  var _getStorePricing = getStorePricing(item, storeName),
+    price = _getStorePricing.price,
+    bulk = _getStorePricing.bulk;
+  var finalQty = useBulk && bulk ? bulkPacks * bulk.qty : regularQty;
+  var totalPrice = useBulk && bulk ? bulkPacks * bulk.price : calcRegularPrice(price, bulk, regularQty);
+  var handleStore = function handleStore(s) {
+    setStoreName(s);
+    setUseBulk(false);
+  };
+  var submit = function submit() {
+    onAdd({
+      id: uid(),
+      itemId: item.id,
+      itemName: item.name,
+      qty: finalQty,
+      store: storeName,
+      price: price,
+      bulk: bulk,
+      storePrice: price,
+      storeBulk: bulk,
+      useBulk: useBulk && !!bulk,
+      bulkPacks: useBulk && bulk ? bulkPacks : null,
+      totalPrice: totalPrice,
+      status: "none",
+      actualQty: null
+    });
+    onClose();
+  };
+  return /*#__PURE__*/React.createElement(Modal, {
+    title: "\u05D4\u05D5\u05E1\u05E4\u05D4: ".concat(item.name),
+    onClose: onClose
+  }, storeNames.length > 1 && /*#__PURE__*/React.createElement(Field, {
+    label: "\u05D7\u05E0\u05D5\u05EA"
+  }, /*#__PURE__*/React.createElement("select", {
+    style: inp,
+    value: storeName,
+    onChange: function onChange(e) {
+      return handleStore(e.target.value);
+    }
+  }, storeNames.map(function (s) {
+    return /*#__PURE__*/React.createElement("option", {
+      key: s,
+      value: s
+    }, s);
+  }))), storeNames.length === 1 && storeName && /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 12px",
+      color: "#64748b",
+      fontSize: 13
+    }
+  }, "\u05D7\u05E0\u05D5\u05EA: ", /*#__PURE__*/React.createElement("strong", null, storeName)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "#f8fafc",
+      borderRadius: 9,
+      padding: "8px 12px",
+      marginBottom: 12,
+      fontSize: 12,
+      color: "#64748b",
+      display: "flex",
+      gap: 14,
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement("span", null, "\uD83D\uDCB0 ", /*#__PURE__*/React.createElement("strong", {
+    style: {
+      color: "#1e293b"
+    }
+  }, fmt(price))), bulk && /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#e8750a",
+      fontWeight: 600
+    }
+  }, "\uD83C\uDFF7\uFE0F ", bulk.qty, " \u05D1-", fmt(bulk.price))), bulk && /*#__PURE__*/React.createElement(Field, {
+    label: "\u05E1\u05D5\u05D2 \u05E7\u05E0\u05D9\u05D9\u05D4"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setUseBulk(false);
+    },
+    style: {
+      flex: 1,
+      padding: "8px 0",
+      borderRadius: 9,
+      border: "1.5px solid ".concat(!useBulk ? "#1e6b8a" : "#e2e8f0"),
+      background: !useBulk ? "#e0f2fe" : "#f8fafc",
+      color: !useBulk ? "#1e6b8a" : "#64748b",
+      fontWeight: !useBulk ? 700 : 500,
+      cursor: "pointer",
+      fontSize: 13,
+      fontFamily: "inherit"
+    }
+  }, "\u05DE\u05D7\u05D9\u05E8 \u05E8\u05D2\u05D9\u05DC"), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setUseBulk(true);
+    },
+    style: {
+      flex: 1,
+      padding: "8px 0",
+      borderRadius: 9,
+      border: "1.5px solid ".concat(useBulk ? "#e8750a" : "#e2e8f0"),
+      background: useBulk ? "#fff7ed" : "#f8fafc",
+      color: useBulk ? "#e8750a" : "#64748b",
+      fontWeight: useBulk ? 700 : 500,
+      cursor: "pointer",
+      fontSize: 13,
+      fontFamily: "inherit"
+    }
+  }, "\uD83C\uDFF7\uFE0F ", bulk.qty, " \u05D1-", fmt(bulk.price)))), !useBulk ? /*#__PURE__*/React.createElement(Field, {
+    label: "\u05DB\u05DE\u05D5\u05EA"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setRegularQty(function (q) {
+        return Math.max(1, q - 1);
+      });
+    },
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 9,
+      border: "1.5px solid #e2e8f0",
+      background: "#f8fafc",
+      fontSize: 20,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u2212"), /*#__PURE__*/React.createElement("input", {
+    style: _objectSpread(_objectSpread({}, inp), {}, {
+      textAlign: "center",
+      width: 70,
+      direction: "ltr"
+    }),
+    type: "number",
+    min: "1",
+    value: regularQty,
+    onChange: function onChange(e) {
+      return setRegularQty(Math.max(1, parseInt(e.target.value) || 1));
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setRegularQty(function (q) {
+        return q + 1;
+      });
+    },
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 9,
+      border: "1.5px solid #e2e8f0",
+      background: "#f8fafc",
+      fontSize: 20,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "+"))) : /*#__PURE__*/React.createElement(Field, {
+    label: "\u05DB\u05DE\u05D5\u05EA \u05D7\u05D1\u05D9\u05DC\u05D5\u05EA"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setBulkPacks(function (q) {
+        return Math.max(1, q - 1);
+      });
+    },
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 9,
+      border: "1.5px solid #e2e8f0",
+      background: "#f8fafc",
+      fontSize: 20,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u2212"), /*#__PURE__*/React.createElement("input", {
+    style: _objectSpread(_objectSpread({}, inp), {}, {
+      textAlign: "center",
+      width: 70,
+      direction: "ltr"
+    }),
+    type: "number",
+    min: "1",
+    value: bulkPacks,
+    onChange: function onChange(e) {
+      return setBulkPacks(Math.max(1, parseInt(e.target.value) || 1));
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setBulkPacks(function (q) {
+        return q + 1;
+      });
+    },
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 9,
+      border: "1.5px solid #e2e8f0",
+      background: "#f8fafc",
+      fontSize: 20,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "+")), bulk && /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "6px 0 0",
+      fontSize: 12,
+      color: "#64748b"
+    }
+  }, bulkPacks, " \xD7 ", bulk.qty, " = ", /*#__PURE__*/React.createElement("strong", null, finalQty, " \u05D9\u05D7'"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "#f0fdf4",
+      border: "1.5px solid #86efac",
+      borderRadius: 10,
+      padding: "12px 16px",
+      marginBottom: 16,
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#166534",
+      marginBottom: 3
+    }
+  }, "\u05E1\u05D4\"\u05DB \u05DC\u05E4\u05E8\u05D9\u05D8 \u05D6\u05D4"), /*#__PURE__*/React.createElement("strong", {
+    style: {
+      fontSize: 22,
+      color: "#15803d"
+    }
+  }, fmt(totalPrice)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#166534",
+      marginTop: 2
+    }
+  }, finalQty, " \u05D9\u05D7\u05D9\u05D3\u05D5\u05EA")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: submit,
+    style: {
+      flex: 1,
+      background: "#2d9b5a",
+      color: "#fff",
+      border: "none",
+      borderRadius: 9,
+      padding: "11px 0",
+      fontSize: 14,
+      fontWeight: 700,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "+ \u05D4\u05D5\u05E1\u05E3 \u05DC\u05E8\u05E9\u05D9\u05DE\u05D4"), /*#__PURE__*/React.createElement("button", {
+    onClick: onClose,
+    style: {
+      flex: 1,
+      background: "#f1f5f9",
+      color: "#475569",
+      border: "none",
+      borderRadius: 9,
+      padding: "11px 0",
+      fontSize: 14,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u05D1\u05D9\u05D8\u05D5\u05DC")));
+}
+
+// ─── EditListEntryModal — edit qty/bulkPacks for existing list entry ──────────
+function EditListEntryModal(_ref7) {
+  var entry = _ref7.entry,
+    onSave = _ref7.onSave,
+    onClose = _ref7.onClose;
+  var bulk = entry.storeBulk != null ? entry.storeBulk : entry.bulk;
+  var price = entry.storePrice != null ? entry.storePrice : entry.price;
+  var _useState25 = useState(entry.useBulk && !!bulk),
+    _useState26 = _slicedToArray(_useState25, 2),
+    useBulk = _useState26[0],
+    setUseBulk = _useState26[1];
+  var _useState27 = useState(entry.bulkPacks || 1),
+    _useState28 = _slicedToArray(_useState27, 2),
+    bulkPacks = _useState28[0],
+    setBulkPacks = _useState28[1];
+  var _useState29 = useState(entry.qty || 1),
+    _useState30 = _slicedToArray(_useState29, 2),
+    regularQty = _useState30[0],
+    setRegularQty = _useState30[1];
+  var finalQty = useBulk && bulk ? bulkPacks * bulk.qty : regularQty;
+  var totalPrice = useBulk && bulk ? bulkPacks * bulk.price : calcRegularPrice(price, bulk, regularQty);
+  var submit = function submit() {
+    onSave(_objectSpread(_objectSpread({}, entry), {}, {
+      qty: finalQty,
+      useBulk: useBulk && !!bulk,
+      bulkPacks: useBulk && bulk ? bulkPacks : null,
+      totalPrice: totalPrice,
+      status: "none",
+      actualQty: null
+    }));
+    onClose();
+  };
+  return /*#__PURE__*/React.createElement(Modal, {
+    title: "\u05E2\u05E8\u05D9\u05DB\u05D4: ".concat(entry.itemName),
+    onClose: onClose
+  }, entry.store && /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 12px",
+      color: "#64748b",
+      fontSize: 13
+    }
+  }, "\u05D7\u05E0\u05D5\u05EA: ", /*#__PURE__*/React.createElement("strong", null, entry.store)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "#f8fafc",
+      borderRadius: 9,
+      padding: "8px 12px",
+      marginBottom: 12,
+      fontSize: 12,
+      color: "#64748b",
+      display: "flex",
+      gap: 14
+    }
+  }, /*#__PURE__*/React.createElement("span", null, "\uD83D\uDCB0 ", /*#__PURE__*/React.createElement("strong", {
+    style: {
+      color: "#1e293b"
+    }
+  }, fmt(price))), bulk && /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#e8750a",
+      fontWeight: 600
+    }
+  }, "\uD83C\uDFF7\uFE0F ", bulk.qty, " \u05D1-", fmt(bulk.price))), bulk && /*#__PURE__*/React.createElement(Field, {
+    label: "\u05E1\u05D5\u05D2 \u05E7\u05E0\u05D9\u05D9\u05D4"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setUseBulk(false);
+    },
+    style: {
+      flex: 1,
+      padding: "8px 0",
+      borderRadius: 9,
+      border: "1.5px solid ".concat(!useBulk ? "#1e6b8a" : "#e2e8f0"),
+      background: !useBulk ? "#e0f2fe" : "#f8fafc",
+      color: !useBulk ? "#1e6b8a" : "#64748b",
+      fontWeight: !useBulk ? 700 : 500,
+      cursor: "pointer",
+      fontSize: 13,
+      fontFamily: "inherit"
+    }
+  }, "\u05DE\u05D7\u05D9\u05E8 \u05E8\u05D2\u05D9\u05DC"), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setUseBulk(true);
+    },
+    style: {
+      flex: 1,
+      padding: "8px 0",
+      borderRadius: 9,
+      border: "1.5px solid ".concat(useBulk ? "#e8750a" : "#e2e8f0"),
+      background: useBulk ? "#fff7ed" : "#f8fafc",
+      color: useBulk ? "#e8750a" : "#64748b",
+      fontWeight: useBulk ? 700 : 500,
+      cursor: "pointer",
+      fontSize: 13,
+      fontFamily: "inherit"
+    }
+  }, "\uD83C\uDFF7\uFE0F ", bulk.qty, " \u05D1-", fmt(bulk.price)))), !useBulk ? /*#__PURE__*/React.createElement(Field, {
+    label: "\u05DB\u05DE\u05D5\u05EA"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setRegularQty(function (q) {
+        return Math.max(1, q - 1);
+      });
+    },
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 9,
+      border: "1.5px solid #e2e8f0",
+      background: "#f8fafc",
+      fontSize: 20,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u2212"), /*#__PURE__*/React.createElement("input", {
+    style: _objectSpread(_objectSpread({}, inp), {}, {
+      textAlign: "center",
+      width: 70,
+      direction: "ltr"
+    }),
+    type: "number",
+    min: "1",
+    value: regularQty,
+    onChange: function onChange(e) {
+      return setRegularQty(Math.max(1, parseInt(e.target.value) || 1));
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setRegularQty(function (q) {
+        return q + 1;
+      });
+    },
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 9,
+      border: "1.5px solid #e2e8f0",
+      background: "#f8fafc",
+      fontSize: 20,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "+"))) : /*#__PURE__*/React.createElement(Field, {
+    label: "\u05DB\u05DE\u05D5\u05EA \u05D7\u05D1\u05D9\u05DC\u05D5\u05EA"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setBulkPacks(function (q) {
+        return Math.max(1, q - 1);
+      });
+    },
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 9,
+      border: "1.5px solid #e2e8f0",
+      background: "#f8fafc",
+      fontSize: 20,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u2212"), /*#__PURE__*/React.createElement("input", {
+    style: _objectSpread(_objectSpread({}, inp), {}, {
+      textAlign: "center",
+      width: 70,
+      direction: "ltr"
+    }),
+    type: "number",
+    min: "1",
+    value: bulkPacks,
+    onChange: function onChange(e) {
+      return setBulkPacks(Math.max(1, parseInt(e.target.value) || 1));
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setBulkPacks(function (q) {
+        return q + 1;
+      });
+    },
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 9,
+      border: "1.5px solid #e2e8f0",
+      background: "#f8fafc",
+      fontSize: 20,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "+")), bulk && /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "6px 0 0",
+      fontSize: 12,
+      color: "#64748b"
+    }
+  }, bulkPacks, " \xD7 ", bulk.qty, " = ", /*#__PURE__*/React.createElement("strong", null, finalQty, " \u05D9\u05D7'"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "#f0fdf4",
+      border: "1.5px solid #86efac",
+      borderRadius: 10,
+      padding: "10px 14px",
+      marginBottom: 14,
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#166534",
+      marginBottom: 2
+    }
+  }, "\u05E1\u05D4\"\u05DB \u05D7\u05D3\u05E9"), /*#__PURE__*/React.createElement("strong", {
+    style: {
+      fontSize: 20,
+      color: "#15803d"
+    }
+  }, fmt(totalPrice)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      color: "#166534",
+      marginRight: 6
+    }
+  }, "(", finalQty, " \u05D9\u05D7')")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: submit,
+    style: {
+      flex: 1,
+      background: "#1e6b8a",
+      color: "#fff",
+      border: "none",
+      borderRadius: 9,
+      padding: "11px 0",
+      fontSize: 14,
+      fontWeight: 700,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u05E9\u05DE\u05D5\u05E8"), /*#__PURE__*/React.createElement("button", {
+    onClick: onClose,
+    style: {
+      flex: 1,
+      background: "#f1f5f9",
+      color: "#475569",
+      border: "none",
+      borderRadius: 9,
+      padding: "11px 0",
+      fontSize: 14,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u05D1\u05D9\u05D8\u05D5\u05DC")));
+}
+
+// ─── PartialQtyInline ─────────────────────────────────────────────────────────
+function PartialQtyInline(_ref8) {
+  var entry = _ref8.entry,
+    _onChange = _ref8.onChange;
+  var max = entry.qty - 1;
+  var clamp = function clamp(v) {
+    return Math.min(max, Math.max(1, v));
+  };
+  var qty = (entry.actualQty != null ? entry.actualQty : Math.floor(entry.qty / 2)) || 1;
+  var cost = calcRegularPrice(entry.storePrice != null ? entry.storePrice : entry.price, entry.storeBulk != null ? entry.storeBulk : entry.bulk, qty);
+  var stop = function stop(e) {
+    return e.stopPropagation();
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    onClick: stop,
+    style: {
+      marginTop: 8,
+      padding: "8px 10px",
+      background: "#fef3c7",
+      borderRadius: 8,
+      border: "1.5px solid #fcd34d"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#92400e",
+      fontWeight: 600,
+      marginBottom: 6
+    }
+  }, "\u05DB\u05DE\u05D4 \u05E0\u05E7\u05E0\u05D5? (\u05DE\u05EA\u05D5\u05DA ", entry.qty, ") \u2014 \u05DC\u05D7\u05E5 \u05E1\u05DE\u05DC \u05DC\u05D0\u05D3\u05D5\u05DD/\u05D1\u05D9\u05D8\u05D5\u05DC"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick(e) {
+      stop(e);
+      _onChange(clamp(qty - 1));
+    },
+    style: {
+      width: 30,
+      height: 30,
+      borderRadius: 7,
+      border: "1.5px solid #fcd34d",
+      background: "#fffbeb",
+      fontSize: 16,
+      cursor: "pointer",
+      fontFamily: "inherit",
+      flexShrink: 0
+    }
+  }, "\u2212"), /*#__PURE__*/React.createElement("input", {
+    type: "number",
+    min: "1",
+    max: max,
+    value: qty,
+    onChange: function onChange(e) {
+      return _onChange(clamp(parseInt(e.target.value) || 1));
+    },
+    onClick: stop,
+    style: {
+      width: 50,
+      padding: "4px 0",
+      border: "1.5px solid #fcd34d",
+      borderRadius: 7,
+      fontSize: 15,
+      textAlign: "center",
+      fontFamily: "inherit",
+      direction: "ltr",
+      background: "#fffbeb"
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick(e) {
+      stop(e);
+      _onChange(clamp(qty + 1));
+    },
+    style: {
+      width: 30,
+      height: 30,
+      borderRadius: 7,
+      border: "1.5px solid #fcd34d",
+      background: "#fffbeb",
+      fontSize: 16,
+      cursor: "pointer",
+      fontFamily: "inherit",
+      flexShrink: 0
+    }
+  }, "+"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      color: "#d97706",
+      fontWeight: 700,
+      marginRight: "auto"
+    }
+  }, fmt(cost))));
+}
+
+// ─── FinishStoreModal ─────────────────────────────────────────────────────────
+function FinishStoreModal(_ref9) {
+  var storeGroups = _ref9.storeGroups,
+    onFinish = _ref9.onFinish,
+    onCancel = _ref9.onCancel;
+  var _useState31 = useState(function () {
+      var s = {};
+      storeGroups.forEach(function (g) {
+        return s[g.store] = true;
+      });
+      return s;
+    }),
+    _useState32 = _slicedToArray(_useState31, 2),
+    selected = _useState32[0],
+    setSelected = _useState32[1];
+  var toggle = function toggle(s) {
+    return setSelected(function (p) {
+      return _objectSpread(_objectSpread({}, p), {}, _defineProperty({}, s, !p[s]));
+    });
+  };
+  var anySelected = Object.values(selected).some(Boolean);
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "fixed",
+      inset: 0,
+      background: "rgba(0,0,0,.5)",
+      zIndex: 1100,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "#fff",
+      borderRadius: 14,
+      padding: 20,
+      maxWidth: 360,
+      width: "100%",
+      boxShadow: "0 20px 60px rgba(0,0,0,.3)"
+    }
+  }, /*#__PURE__*/React.createElement("h3", {
+    style: {
+      margin: "0 0 5px",
+      fontSize: 15,
+      color: "#1e293b"
+    }
+  }, "\u2705 \u05E1\u05D9\u05D9\u05DD \u05E7\u05E0\u05D9\u05D9\u05D4"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: "0 0 14px",
+      fontSize: 13,
+      color: "#64748b"
+    }
+  }, "\u05D1\u05D7\u05E8 \u05D0\u05D9\u05DC\u05D5 \u05D7\u05E0\u05D5\u05D9\u05D5\u05EA \u05DC\u05E1\u05D9\u05D9\u05DD:"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 7,
+      marginBottom: 16
+    }
+  }, storeGroups.map(function (g) {
+    return /*#__PURE__*/React.createElement("label", {
+      key: g.store,
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        padding: "9px 12px",
+        background: selected[g.store] ? "#e0f2fe" : "#f8fafc",
+        borderRadius: 9,
+        border: "1.5px solid ".concat(selected[g.store] ? "#1e6b8a" : "#e2e8f0"),
+        cursor: "pointer"
+      }
+    }, /*#__PURE__*/React.createElement("input", {
+      type: "checkbox",
+      checked: !!selected[g.store],
+      onChange: function onChange() {
+        return toggle(g.store);
+      },
+      style: {
+        width: 16,
+        height: 16,
+        accentColor: "#1e6b8a"
+      }
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontWeight: 700,
+        color: "#1e293b",
+        fontSize: 13
+      }
+    }, "\uD83C\uDFEA ", g.store || "ללא חנות"), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 11,
+        color: "#64748b",
+        marginTop: 1
+      }
+    }, g.items.length, " \u05E4\u05E8\u05D9\u05D8\u05D9\u05DD \xB7 ", fmt(g.plannedTotal))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 14,
+        fontWeight: 800,
+        color: "#15803d"
+      }
+    }, fmt(g.actualTotal)));
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return anySelected && onFinish(selected);
+    },
+    disabled: !anySelected,
+    style: {
+      flex: 1,
+      background: anySelected ? "#2d9b5a" : "#94a3b8",
+      color: "#fff",
+      border: "none",
+      borderRadius: 9,
+      padding: "10px 0",
+      fontSize: 14,
+      fontWeight: 700,
+      cursor: anySelected ? "pointer" : "default",
+      fontFamily: "inherit"
+    }
+  }, "\u05D4\u05E2\u05D1\u05E8 \u05DC\u05D0\u05E8\u05DB\u05D9\u05D5\u05DF"), /*#__PURE__*/React.createElement("button", {
+    onClick: onCancel,
+    style: {
+      flex: 1,
+      background: "#f1f5f9",
+      color: "#475569",
+      border: "none",
+      borderRadius: 9,
+      padding: "10px 0",
+      fontSize: 14,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u05D1\u05D9\u05D8\u05D5\u05DC"))));
+}
+
+// ─── StatsModal ───────────────────────────────────────────────────────────────
+function StatsModal(_ref0) {
+  var archive = _ref0.archive,
+    onClose = _ref0.onClose;
+  if (!archive.length) return /*#__PURE__*/React.createElement(Modal, {
+    title: "\uD83D\uDCCA \u05E1\u05D8\u05D8\u05D9\u05E1\u05D8\u05D9\u05E7\u05D5\u05EA",
+    onClose: onClose
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      color: "#94a3b8",
+      textAlign: "center",
+      padding: "20px 0"
+    }
+  }, "\u05D0\u05D9\u05DF \u05E0\u05EA\u05D5\u05E0\u05D9\u05DD \u05E2\u05D3\u05D9\u05D9\u05DF \u2014 \u05D4\u05E9\u05DC\u05DD \u05E7\u05E0\u05D9\u05D9\u05D4 \u05E8\u05D0\u05E9\u05D5\u05E0\u05D4."));
+  var sessions = archive.length;
+  var totalSpent = archive.reduce(function (s, a) {
+    return s + (a.actualTotal != null ? a.actualTotal : a.total != null ? a.total : 0);
+  }, 0);
+  var avg = totalSpent / sessions;
+
+  // Build one map: itemName → { units bought (actual), total spent }
+  var itemMap = {};
+  archive.forEach(function (a) {
+    return a.items.forEach(function (i) {
+      var st = i.status || "none";
+      if (st === "red" || st === "none") return; // not bought at all
+      if (!itemMap[i.itemName]) itemMap[i.itemName] = {
+        name: i.itemName,
+        units: 0,
+        spent: 0
+      };
+      // actual units: yellow → actualQty, green → qty (which already = total units incl. bulk)
+      var units = st === "yellow" ? i.actualQty || 0 : i.qty || 0;
+      var spent = i.actualPrice != null ? i.actualPrice : i.totalPrice != null ? i.totalPrice : 0;
+      itemMap[i.itemName].units += units;
+      itemMap[i.itemName].spent += spent;
+    });
+  });
+
+  // Single list sorted by units desc; secondary sort by spent
+  var items = Object.values(itemMap).filter(function (x) {
+    return x.units > 0;
+  }).sort(function (a, b) {
+    return b.units - a.units || b.spent - a.spent;
+  }).slice(0, 10);
+  var shareStats = function shareStats() {
+    var txt = buildStatsShareText(sessions, totalSpent, avg, items);
+    window.open("https://wa.me/?text=" + encodeURIComponent(txt), "_blank");
+  };
+  return /*#__PURE__*/React.createElement(Modal, {
+    title: "\uD83D\uDCCA \u05E1\u05D8\u05D8\u05D9\u05E1\u05D8\u05D9\u05E7\u05D5\u05EA",
+    onClose: onClose
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      marginBottom: 16
+    }
+  }, [["".concat(sessions), "קניות"], [fmt(totalSpent), "סה״כ הוצאה"], [fmt(avg), "ממוצע לקנייה"]].map(function (_ref1) {
+    var _ref10 = _slicedToArray(_ref1, 2),
+      val = _ref10[0],
+      lbl = _ref10[1];
+    return /*#__PURE__*/React.createElement("div", {
+      key: lbl,
+      style: {
+        flex: 1,
+        background: "#f8fafc",
+        borderRadius: 10,
+        padding: "10px 8px",
+        textAlign: "center",
+        border: "1px solid #e2e8f0"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 16,
+        fontWeight: 800,
+        color: "#1e6b8a"
+      }
+    }, val), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: "#64748b",
+        marginTop: 2
+      }
+    }, lbl));
+  })), items.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      fontSize: 13,
+      color: "#1e293b",
+      marginBottom: 8
+    }
+  }, "\u05DE\u05D5\u05E6\u05E8\u05D9\u05DD \u05E9\u05E0\u05E7\u05E0\u05D5"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      padding: "4px 10px",
+      marginBottom: 4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: 1,
+      fontSize: 10,
+      color: "#94a3b8",
+      fontWeight: 600
+    }
+  }, "\u05DE\u05D5\u05E6\u05E8"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      color: "#94a3b8",
+      fontWeight: 600,
+      width: 52,
+      textAlign: "center"
+    }
+  }, "\u05D9\u05D7\u05D9\u05D3\u05D5\u05EA"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      color: "#94a3b8",
+      fontWeight: 600,
+      width: 60,
+      textAlign: "left"
+    }
+  }, "\u05E1\u05D4\u05F4\u05DB")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 4,
+      marginBottom: 16
+    }
+  }, items.map(function (it, i) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: it.name,
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        padding: "7px 10px",
+        background: i === 0 ? "#e0f2fe" : "#f8fafc",
+        borderRadius: 8,
+        border: "1px solid #e2e8f0"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11,
+        fontWeight: 700,
+        color: "#94a3b8",
+        width: 18,
+        flexShrink: 0
+      }
+    }, i + 1, "."), /*#__PURE__*/React.createElement("span", {
+      style: {
+        flex: 1,
+        fontSize: 13,
+        fontWeight: 600,
+        color: "#1e293b",
+        minWidth: 0,
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap"
+      }
+    }, it.name), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 12,
+        color: "#64748b",
+        width: 52,
+        textAlign: "center",
+        flexShrink: 0
+      }
+    }, it.units, " \u05D9\u05D7'"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 12,
+        fontWeight: 700,
+        color: "#e8750a",
+        width: 60,
+        textAlign: "left",
+        flexShrink: 0
+      }
+    }, fmt(it.spent)));
+  }))), /*#__PURE__*/React.createElement("button", {
+    onClick: shareStats,
+    style: {
+      width: "100%",
+      background: "#25D366",
+      color: "#fff",
+      border: "none",
+      borderRadius: 9,
+      padding: "10px 0",
+      fontSize: 13,
+      fontWeight: 700,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u05E9\u05EA\u05E3 \u05E1\u05D8\u05D8\u05D9\u05E1\u05D8\u05D9\u05E7\u05D5\u05EA \u05D1\u05D5\u05D5\u05D8\u05E1\u05D0\u05E4"));
+}
+
+// ─── WhatsApp share ───────────────────────────────────────────────────────────
+function buildShareText(lists, storeGroups, multiStore, plannedTotal, actualTotal, hasAnyStatus) {
+  var date = new Date().toLocaleDateString("he-IL", {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric"
+  });
+  var txt = "*\u05E8\u05E9\u05D9\u05DE\u05EA \u05E7\u05E0\u05D9\u05D5\u05EA \u2014 ".concat(date, "*\n\n");
+  var fmtEntry = function fmtEntry(e) {
+    var st = e.status || "none";
+    if (st === "yellow" && e.actualQty) {
+      return "".concat(e.actualQty, "/").concat(e.qty, " ").concat(e.itemName, " - ").concat(fmt(calcItemActualPrice(e)));
+    }
+    var line = "".concat(e.qty, " ").concat(e.itemName, " - ").concat(fmt(e.totalPrice));
+    if (st === "red") line += " [לא נקנה]";
+    return line;
+  };
+  if (multiStore) {
+    storeGroups.forEach(function (g) {
+      txt += "*".concat(g.store || "ללא חנות", "*\n");
+      g.items.forEach(function (e) {
+        txt += fmtEntry(e) + "\n";
+      });
+      txt += "\n";
+    });
+  } else {
+    lists.forEach(function (e) {
+      txt += fmtEntry(e) + "\n";
+    });
+  }
+  txt += "\n*\u05DE\u05EA\u05D5\u05DB\u05E0\u05DF: ".concat(fmt(plannedTotal), "*");
+  if (hasAnyStatus) txt += "\n*\u05D1\u05E4\u05D5\u05E2\u05DC: ".concat(fmt(actualTotal), "*");
+  return txt;
+}
+function buildStatsShareText(sessions, totalSpent, avg, items) {
+  var txt = "*\u05E1\u05D8\u05D8\u05D9\u05E1\u05D8\u05D9\u05E7\u05D5\u05EA \u05E7\u05E0\u05D9\u05D5\u05EA*\n\n";
+  txt += "\u05E7\u05E0\u05D9\u05D5\u05EA: ".concat(sessions, "\n");
+  txt += "\u05E1\u05D4\u05F4\u05DB \u05D4\u05D5\u05E6\u05D0\u05D4: ".concat(fmt(totalSpent), "\n");
+  txt += "\u05DE\u05DE\u05D5\u05E6\u05E2 \u05DC\u05E7\u05E0\u05D9\u05D9\u05D4: ".concat(fmt(avg), "\n\n");
+  if (items.length > 0) {
+    txt += "*\u05DE\u05D5\u05E6\u05E8\u05D9\u05DD \u05E9\u05E0\u05E7\u05E0\u05D5:*\n";
+    items.forEach(function (it, i) {
+      txt += "".concat(i + 1, ". ").concat(it.name, " \u2014 ").concat(it.units, " \u05D9\u05D7' \u2014 ").concat(fmt(it.spent), "\n");
+    });
+  }
+  return txt;
+}
+
+// ─── MAIN APP ─────────────────────────────────────────────────────────────────
+function App() {
+  var _useState33 = useState("catalog"),
+    _useState34 = _slicedToArray(_useState33, 2),
+    tab = _useState34[0],
+    setTab = _useState34[1];
+  var _useState35 = useState([]),
+    _useState36 = _slicedToArray(_useState35, 2),
+    catalog = _useState36[0],
+    setCatalog = _useState36[1];
+  var _useState37 = useState([]),
+    _useState38 = _slicedToArray(_useState37, 2),
+    lists = _useState38[0],
+    setLists = _useState38[1];
+  var _useState39 = useState([]),
+    _useState40 = _slicedToArray(_useState39, 2),
+    archive = _useState40[0],
+    setArchive = _useState40[1];
+  var _useState41 = useState(false),
+    _useState42 = _slicedToArray(_useState41, 2),
+    loaded = _useState42[0],
+    setLoaded = _useState42[1];
+  var _useState43 = useState(null),
+    _useState44 = _slicedToArray(_useState43, 2),
+    editItem = _useState44[0],
+    setEditItem = _useState44[1];
+  var _useState45 = useState(null),
+    _useState46 = _slicedToArray(_useState45, 2),
+    addToList = _useState46[0],
+    setAddToList = _useState46[1];
+  var _useState47 = useState(null),
+    _useState48 = _slicedToArray(_useState47, 2),
+    editListEntry = _useState48[0],
+    setEditListEntry = _useState48[1];
+  var _useState49 = useState(null),
+    _useState50 = _slicedToArray(_useState49, 2),
+    confirmDialog = _useState50[0],
+    setConfirmDialog = _useState50[1];
+  var _useState51 = useState(false),
+    _useState52 = _slicedToArray(_useState51, 2),
+    finishModal = _useState52[0],
+    setFinishModal = _useState52[1];
+  var _useState53 = useState(false),
+    _useState54 = _slicedToArray(_useState53, 2),
+    showStats = _useState54[0],
+    setShowStats = _useState54[1];
+  var _useState55 = useState({}),
+    _useState56 = _slicedToArray(_useState55, 2),
+    openArchive = _useState56[0],
+    setOpenArchive = _useState56[1];
+  var _useState57 = useState(""),
+    _useState58 = _slicedToArray(_useState57, 2),
+    catSearch = _useState58[0],
+    setCatSearch = _useState58[1];
+  var _useState59 = useState(""),
+    _useState60 = _slicedToArray(_useState59, 2),
+    filterCat = _useState60[0],
+    setFilterCat = _useState60[1];
+  var _useState61 = useState(null),
+    _useState62 = _slicedToArray(_useState61, 2),
+    dragIdx = _useState62[0],
+    setDragIdx = _useState62[1];
+  var _useState63 = useState(null),
+    _useState64 = _slicedToArray(_useState63, 2),
+    dragOver = _useState64[0],
+    setDragOver = _useState64[1];
+  var _useState65 = useState(null),
+    _useState66 = _slicedToArray(_useState65, 2),
+    dragList = _useState66[0],
+    setDragList = _useState66[1];
+  useEffect(function () {
+    _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var c, l, a;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.n) {
+          case 0:
+            _context.n = 1;
+            return load(KEYS.catalog);
+          case 1:
+            c = _context.v;
+            if (c) setCatalog(c);
+            _context.n = 2;
+            return load(KEYS.lists);
+          case 2:
+            l = _context.v;
+            if (l) setLists(l);
+            _context.n = 3;
+            return load(KEYS.archive);
+          case 3:
+            a = _context.v;
+            if (a) setArchive(a);
+            setLoaded(true);
+          case 4:
+            return _context.a(2);
+        }
+      }, _callee);
+    }))();
+  }, []);
+  useEffect(function () {
+    if (loaded) save(KEYS.catalog, catalog);
+  }, [catalog, loaded]);
+  useEffect(function () {
+    if (loaded) save(KEYS.lists, lists);
+  }, [lists, loaded]);
+  useEffect(function () {
+    if (loaded) save(KEYS.archive, archive);
+  }, [archive, loaded]);
+  var categories = _toConsumableArray(new Set(catalog.map(function (i) {
+    return i.category;
+  }).filter(Boolean)));
+  var allStores = _toConsumableArray(new Set(catalog.flatMap(function (i) {
+    var _i$stores;
+    return ((_i$stores = i.stores) === null || _i$stores === void 0 ? void 0 : _i$stores.map(function (s) {
+      return typeof s === "string" ? s : s.name;
+    })) || [];
+  }).filter(Boolean)));
+  var askConfirm = function askConfirm(msg, fn) {
+    return setConfirmDialog({
+      message: msg,
+      onConfirm: fn
+    });
+  };
+
+  // ── Catalog ──
+  var saveCatalogItem = function saveCatalogItem(item) {
+    return setCatalog(function (prev) {
+      return prev.find(function (i) {
+        return i.id === item.id;
+      }) ? prev.map(function (i) {
+        return i.id === item.id ? item : i;
+      }) : [].concat(_toConsumableArray(prev), [item]);
+    });
+  };
+  var deleteCatalogItem = function deleteCatalogItem(id) {
+    return askConfirm("למחוק מוצר מהרשימה הכללית?", function () {
+      return setCatalog(function (prev) {
+        return prev.filter(function (i) {
+          return i.id !== id;
+        });
+      });
+    });
+  };
+
+  // ── List ──
+  var addListItem = function addListItem(e) {
+    return setLists(function (prev) {
+      return [].concat(_toConsumableArray(prev), [e]);
+    });
+  };
+  var removeListItem = function removeListItem(id) {
+    return setLists(function (prev) {
+      return prev.filter(function (i) {
+        return i.id !== id;
+      });
+    });
+  };
+  var updateListEntry = function updateListEntry(entry) {
+    return setLists(function (prev) {
+      return prev.map(function (e) {
+        return e.id === entry.id ? entry : e;
+      });
+    });
+  };
+
+  // ── Traffic light ──
+  var cycleStatus = function cycleStatus(id) {
+    var entry = lists.find(function (e) {
+      return e.id === id;
+    });
+    if (!entry) return;
+    var next = nextStatus(entry.status || "none", entry.qty);
+    setLists(function (prev) {
+      return prev.map(function (e) {
+        if (e.id !== id) return e;
+        if (next === "yellow") return _objectSpread(_objectSpread({}, e), {}, {
+          status: "yellow",
+          actualQty: (e.actualQty != null ? e.actualQty : Math.floor(e.qty / 2)) || 1
+        });
+        if (next === "green") return _objectSpread(_objectSpread({}, e), {}, {
+          status: "green",
+          actualQty: e.qty
+        });
+        return _objectSpread(_objectSpread({}, e), {}, {
+          status: next,
+          actualQty: null
+        });
+      });
+    });
+  };
+  var setPartialQty = function setPartialQty(id, qty) {
+    return setLists(function (prev) {
+      return prev.map(function (e) {
+        return e.id === id ? _objectSpread(_objectSpread({}, e), {}, {
+          actualQty: qty
+        }) : e;
+      });
+    });
+  };
+
+  // ── Totals ──
+  var plannedTotal = lists.reduce(function (s, e) {
+    return s + e.totalPrice;
+  }, 0);
+  var actualTotal = lists.reduce(function (s, e) {
+    return s + calcItemActualPrice(e);
+  }, 0);
+  var hasAnyStatus = lists.some(function (e) {
+    return e.status && e.status !== "none";
+  });
+
+  // ── Store groups ──
+  var storeGroups = function () {
+    var groups = {};
+    lists.forEach(function (e) {
+      var k = e.store || "";
+      if (!groups[k]) groups[k] = {
+        store: e.store || "",
+        items: [],
+        plannedTotal: 0,
+        actualTotal: 0
+      };
+      groups[k].items.push(e);
+      groups[k].plannedTotal += e.totalPrice;
+      groups[k].actualTotal += calcItemActualPrice(e);
+    });
+    return Object.values(groups);
+  }();
+  var multiStore = storeGroups.length > 1;
+
+  // ── Finish ──
+  var openFinish = function openFinish() {
+    if (!lists.length) return;
+    if (multiStore) setFinishModal(true);else askConfirm("לסיים קנייה ולהעביר לארכיון?", function () {
+      return doArchive(null);
+    });
+  };
+  var doArchive = function doArchive(selectedStores) {
+    var toArchive = selectedStores ? lists.filter(function (e) {
+      var k = e.store || "";
+      return selectedStores[k] || selectedStores[""];
+    }) : lists;
+    var toKeep = selectedStores ? lists.filter(function (e) {
+      var k = e.store || "";
+      return !(selectedStores[k] || selectedStores[""]);
+    }) : [];
+    if (!toArchive.length) return;
+    var planned = toArchive.reduce(function (s, e) {
+      return s + e.totalPrice;
+    }, 0);
+    var actual = toArchive.reduce(function (s, e) {
+      return s + calcItemActualPrice(e);
+    }, 0);
+    var storeLabel = selectedStores ? Object.entries(selectedStores).filter(function (_ref12) {
+      var _ref13 = _slicedToArray(_ref12, 2),
+        v = _ref13[1];
+      return v;
+    }).map(function (_ref14) {
+      var _ref15 = _slicedToArray(_ref14, 1),
+        k = _ref15[0];
+      return k || "ללא חנות";
+    }).join(", ") : "";
+    setArchive(function (prev) {
+      return [{
+        id: uid(),
+        date: new Date().toLocaleDateString("he-IL", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        }),
+        stores: storeLabel || null,
+        items: toArchive.map(function (e) {
+          return _objectSpread(_objectSpread({}, e), {}, {
+            actualPrice: calcItemActualPrice(e)
+          });
+        }),
+        plannedTotal: planned,
+        actualTotal: actual
+      }].concat(_toConsumableArray(prev));
+    });
+    setLists(toKeep);
+    setFinishModal(false);
+    if (!toKeep.length) setTab("archive");
+  };
+
+  // ── Archive ──
+  var deleteArchiveEntry = function deleteArchiveEntry(id) {
+    return askConfirm("למחוק קנייה מהארכיון?", function () {
+      return setArchive(function (prev) {
+        return prev.filter(function (e) {
+          return e.id !== id;
+        });
+      });
+    });
+  };
+  var toggleArchiveOpen = function toggleArchiveOpen(id) {
+    return setOpenArchive(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, id, !prev[id]));
+    });
+  };
+  var restoreFromArchive = function restoreFromArchive(session) {
+    var fresh = session.items.map(function (i) {
+      return _objectSpread(_objectSpread({}, i), {}, {
+        id: uid(),
+        status: "none",
+        actualQty: null,
+        actualPrice: undefined
+      });
+    });
+    var doR = function doR() {
+      setLists(fresh);
+      setTab("list");
+    };
+    lists.length > 0 ? askConfirm("יש רשימת קניות פעילה. להחליף אותה?", doR) : doR();
+  };
+
+  // ── WhatsApp share ──
+  var shareWhatsApp = function shareWhatsApp() {
+    var txt = buildShareText(lists, storeGroups, multiStore, plannedTotal, actualTotal, hasAnyStatus);
+    window.open("https://wa.me/?text=" + encodeURIComponent(txt), "_blank");
+  };
+  var shareArchiveSession = function shareArchiveSession(session) {
+    var txt = "*\u05E8\u05E9\u05D9\u05DE\u05EA \u05E7\u05E0\u05D9\u05D5\u05EA \u2014 ".concat(session.date, "*\n");
+    if (session.stores) txt += "*".concat(session.stores, "*\n");
+    txt += "\n";
+    // group by store if multiple
+    var byStore = {};
+    session.items.forEach(function (i) {
+      var k = i.store || "";
+      if (!byStore[k]) byStore[k] = [];
+      byStore[k].push(i);
+    });
+    var storeKeys = Object.keys(byStore);
+    storeKeys.forEach(function (k) {
+      if (storeKeys.length > 1) txt += "*".concat(k || "ללא חנות", "*\n");
+      byStore[k].forEach(function (i) {
+        var st = i.status || "none";
+        if (st === "yellow" && i.actualQty) txt += "".concat(i.actualQty, "/").concat(i.qty, " ").concat(i.itemName, " - ").concat(fmt(i.actualPrice != null ? i.actualPrice : i.totalPrice));else txt += "".concat(i.qty, " ").concat(i.itemName, " - ").concat(fmt(i.actualPrice != null ? i.actualPrice : i.totalPrice));
+        if (st === "red") txt += " [לא נקנה]";
+        txt += "\n";
+      });
+      if (storeKeys.length > 1) txt += "\n";
+    });
+    if (session.plannedTotal != null && session.plannedTotal !== session.actualTotal) txt += "\n*\u05DE\u05EA\u05D5\u05DB\u05E0\u05DF: ".concat(fmt(session.plannedTotal), "*");
+    txt += "\n*\u05D1\u05E4\u05D5\u05E2\u05DC: ".concat(fmt(session.actualTotal != null ? session.actualTotal : session.total), "*");
+    window.open("https://wa.me/?text=" + encodeURIComponent(txt), "_blank");
+  };
+
+  // ── Drag ──
+  var _onDragStart = function onDragStart(i, l) {
+    setDragIdx(i);
+    setDragList(l);
+  };
+  var _onDragEnter = function onDragEnter(i) {
+    return setDragOver(i);
+  };
+  var onDragEnd = function onDragEnd() {
+    if (dragIdx !== null && dragOver !== null && dragIdx !== dragOver) {
+      var r = function r(arr) {
+        var a = _toConsumableArray(arr);
+        var _a$splice = a.splice(dragIdx, 1),
+          _a$splice2 = _slicedToArray(_a$splice, 1),
+          m = _a$splice2[0];
+        a.splice(dragOver, 0, m);
+        return a;
+      };
+      if (dragList === "catalog") setCatalog(r);else if (dragList === "list") setLists(r);
+    }
+    setDragIdx(null);
+    setDragOver(null);
+    setDragList(null);
+  };
+  var getStoreDisplay = function getStoreDisplay(item) {
+    var _item$stores4;
+    if (!((_item$stores4 = item.stores) !== null && _item$stores4 !== void 0 && _item$stores4.length)) return null;
+    if (typeof item.stores[0] === "string") return item.stores.join(", ");
+    return item.stores.map(function (s) {
+      return s.name;
+    }).filter(Boolean).join(", ");
+  };
+  var visibleCatalog = catalog.filter(function (i) {
+    return i.name.toLowerCase().includes(catSearch.toLowerCase()) && (!filterCat || i.category === filterCat);
+  });
+  if (!loaded) return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "100vh",
+      color: "#64748b",
+      fontFamily: "sans-serif"
+    }
+  }, "\u05D8\u05D5\u05E2\u05DF...");
+  var tabBtn = function tabBtn(id, label, icon) {
+    return /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick() {
+        return setTab(id);
+      },
+      style: {
+        flex: 1,
+        padding: "8px 0",
+        background: tab === id ? "#1e6b8a" : "transparent",
+        color: tab === id ? "#fff" : "rgba(255,255,255,.7)",
+        border: "none",
+        borderRadius: 9,
+        fontFamily: "inherit",
+        fontSize: 12,
+        fontWeight: tab === id ? 700 : 500,
+        cursor: "pointer",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 2
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 18
+      }
+    }, icon), label);
+  };
+
+  // Reusable list-entry row renderer
+  var EntryRow = function EntryRow(_ref16) {
+    var entry = _ref16.entry,
+      idx = _ref16.idx,
+      draggableIdx = _ref16.draggableIdx;
+    var st = entry.status || "none";
+    var rowBg = st === "green" ? "#f0fdf4" : st === "yellow" ? "#fffbeb" : st === "red" ? "#fff1f2" : "#fff";
+    var di = draggableIdx != null ? draggableIdx : idx;
+    return /*#__PURE__*/React.createElement("div", {
+      key: entry.id,
+      draggable: true,
+      onDragStart: function onDragStart() {
+        return _onDragStart(di, "list");
+      },
+      onDragEnter: function onDragEnter() {
+        return _onDragEnter(di);
+      },
+      onDragEnd: onDragEnd,
+      onDragOver: function onDragOver(e) {
+        return e.preventDefault();
+      },
+      style: {
+        background: rowBg,
+        borderRadius: 12,
+        padding: "10px 12px",
+        boxShadow: "0 1px 3px rgba(0,0,0,.05)",
+        border: "2px solid ".concat(dragOver === di && dragList === "list" ? "#1e6b8a" : "transparent"),
+        transition: "background .2s"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 8
+      }
+    }, /*#__PURE__*/React.createElement(DragHandle, null), /*#__PURE__*/React.createElement(TrafficLight, {
+      status: st,
+      onClick: function onClick() {
+        return cycleStatus(entry.id);
+      }
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1,
+        minWidth: 0
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontWeight: 700,
+        fontSize: 13,
+        color: st === "red" ? "#94a3b8" : "#1e293b",
+        textDecoration: st === "red" ? "line-through" : "none"
+      }
+    }, entry.itemName), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 11,
+        color: "#64748b",
+        marginTop: 1,
+        display: "flex",
+        gap: 7,
+        flexWrap: "wrap"
+      }
+    }, /*#__PURE__*/React.createElement("span", null, entry.qty, " \u05D9\u05D7'"), st === "yellow" && entry.actualQty != null && /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "#d97706",
+        fontWeight: 600
+      }
+    }, "\u05E0\u05E7\u05E0\u05D4: ", entry.actualQty), entry.useBulk && entry.bulkPacks && /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "#e8750a"
+      }
+    }, "\uD83C\uDFF7\uFE0F", entry.bulkPacks, " \u05D7\u05D1'"))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flexShrink: 0,
+        textAlign: "left",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-end",
+        gap: 2
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontWeight: 800,
+        fontSize: 13,
+        color: "#15803d"
+      }
+    }, fmt(entry.totalPrice)), st === "yellow" && entry.actualQty != null && /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11,
+        color: "#d97706",
+        fontWeight: 700
+      }
+    }, "\u05D1\u05E4\u05D5\u05E2\u05DC: ", fmt(calcItemActualPrice(entry))), st === "red" && /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11,
+        color: "#dc2626",
+        fontWeight: 700
+      }
+    }, "\u20AA0"), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 6,
+        marginTop: 1
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick() {
+        return setEditListEntry(entry);
+      },
+      style: {
+        background: "none",
+        border: "none",
+        cursor: "pointer",
+        color: "#1e6b8a",
+        fontSize: 11,
+        padding: 0,
+        fontFamily: "inherit"
+      }
+    }, "\u05E2\u05E8\u05D5\u05DA"), /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick() {
+        return removeListItem(entry.id);
+      },
+      style: {
+        background: "none",
+        border: "none",
+        cursor: "pointer",
+        color: "#ef4444",
+        fontSize: 11,
+        padding: 0,
+        fontFamily: "inherit"
+      }
+    }, "\u05D4\u05E1\u05E8")))), st === "yellow" && /*#__PURE__*/React.createElement(PartialQtyInline, {
+      entry: entry,
+      onChange: function onChange(qty) {
+        return setPartialQty(entry.id, qty);
+      }
+    }));
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    dir: "rtl",
+    style: {
+      fontFamily: "'Segoe UI',Arial,sans-serif",
+      background: "#f8fafc",
+      minHeight: "100vh",
+      maxWidth: 640,
+      margin: "0 auto",
+      display: "flex",
+      flexDirection: "column"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "#1e6b8a",
+      color: "#fff",
+      padding: "14px 16px 12px",
+      position: "sticky",
+      top: 0,
+      zIndex: 100
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("h1", {
+    style: {
+      margin: 0,
+      fontSize: 17,
+      fontWeight: 800
+    }
+  }, "\uD83D\uDED2 \u05E8\u05E9\u05D9\u05DE\u05EA \u05E7\u05E0\u05D9\u05D5\u05EA"), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setShowStats(true);
+    },
+    style: {
+      background: "rgba(255,255,255,.2)",
+      border: "none",
+      borderRadius: 8,
+      padding: "4px 10px",
+      color: "#fff",
+      cursor: "pointer",
+      fontSize: 13,
+      fontFamily: "inherit"
+    }
+  }, "\uD83D\uDCCA")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 5,
+      background: "rgba(0,0,0,.2)",
+      borderRadius: 10,
+      padding: 3
+    }
+  }, tabBtn("catalog", "מוצרים", "📦"), tabBtn("list", lists.length ? "\u05E7\u05E0\u05D9\u05D9\u05D4 (".concat(lists.length, ")") : "קנייה", "🛒"), tabBtn("archive", "ארכיון", "📂"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      padding: "12px 12px 120px"
+    }
+  }, tab === "catalog" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    style: _objectSpread(_objectSpread({}, inp), {}, {
+      flex: 1,
+      background: "#fff"
+    }),
+    value: catSearch,
+    onChange: function onChange(e) {
+      return setCatSearch(e.target.value);
+    },
+    placeholder: "\uD83D\uDD0D \u05D7\u05E4\u05E9 \u05DE\u05D5\u05E6\u05E8..."
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setEditItem({});
+    },
+    style: {
+      background: "#1e6b8a",
+      color: "#fff",
+      border: "none",
+      borderRadius: 9,
+      padding: "0 14px",
+      fontSize: 22,
+      cursor: "pointer",
+      flexShrink: 0,
+      fontWeight: 700
+    }
+  }, "+")), categories.length > 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      overflowX: "auto",
+      marginBottom: 10,
+      paddingBottom: 3
+    }
+  }, [""].concat(_toConsumableArray(categories)).map(function (c) {
+    return /*#__PURE__*/React.createElement("button", {
+      key: c || "__all",
+      onClick: function onClick() {
+        return setFilterCat(c);
+      },
+      style: {
+        padding: "4px 11px",
+        borderRadius: 16,
+        border: "1.5px solid",
+        borderColor: filterCat === c ? "#1e6b8a" : "#e2e8f0",
+        background: filterCat === c ? "#e0f2fe" : "#fff",
+        color: filterCat === c ? "#1e6b8a" : "#64748b",
+        fontSize: 12,
+        cursor: "pointer",
+        whiteSpace: "nowrap",
+        fontWeight: filterCat === c ? 700 : 400,
+        fontFamily: "inherit"
+      }
+    }, c || "הכל");
+  })), visibleCatalog.length === 0 ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: "50px 20px",
+      color: "#94a3b8"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 40,
+      marginBottom: 10
+    }
+  }, "\uD83D\uDCE6"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 14
+    }
+  }, catSearch ? "לא נמצאו מוצרים" : 'לחץ "+" להוסיף')) : /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 8
+    }
+  }, visibleCatalog.map(function (item, idx) {
+    var storeDisplay = getStoreDisplay(item);
+    return /*#__PURE__*/React.createElement("div", {
+      key: item.id,
+      draggable: true,
+      onDragStart: function onDragStart() {
+        return _onDragStart(idx, "catalog");
+      },
+      onDragEnter: function onDragEnter() {
+        return _onDragEnter(idx);
+      },
+      onDragEnd: onDragEnd,
+      onDragOver: function onDragOver(e) {
+        return e.preventDefault();
+      },
+      style: {
+        background: "#fff",
+        borderRadius: 12,
+        padding: "11px 13px",
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        boxShadow: "0 1px 3px rgba(0,0,0,.06)",
+        border: "2px solid ".concat(dragOver === idx && dragList === "catalog" ? "#1e6b8a" : "transparent")
+      }
+    }, /*#__PURE__*/React.createElement(DragHandle, null), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1,
+        minWidth: 0
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 7,
+        flexWrap: "wrap"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontWeight: 700,
+        fontSize: 13,
+        color: "#1e293b"
+      }
+    }, item.name), item.category && /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 10,
+        background: "#e0f2fe",
+        color: "#1e6b8a",
+        borderRadius: 16,
+        padding: "1px 7px",
+        fontWeight: 600
+      }
+    }, item.category)), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 11,
+        color: "#64748b",
+        marginTop: 2,
+        display: "flex",
+        gap: 8,
+        flexWrap: "wrap"
+      }
+    }, item.sharedPricing !== false && /*#__PURE__*/React.createElement("span", null, "\uD83D\uDCB0", fmt(item.price)), item.sharedPricing !== false && item.bulk && /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "#e8750a",
+        fontWeight: 600
+      }
+    }, "\uD83C\uDFF7\uFE0F", item.bulk.qty, " \u05D1-", fmt(item.bulk.price)), item.sharedPricing === false && /*#__PURE__*/React.createElement("span", null, "\uD83D\uDCB0 \u05DC\u05E4\u05D9 \u05D7\u05E0\u05D5\u05EA"), storeDisplay && /*#__PURE__*/React.createElement("span", null, "\uD83C\uDFEA", storeDisplay))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 5,
+        flexShrink: 0
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick() {
+        return setAddToList(item);
+      },
+      style: {
+        background: "#f0fdf4",
+        border: "none",
+        borderRadius: 7,
+        width: 32,
+        height: 32,
+        cursor: "pointer",
+        fontSize: 13,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }
+    }, "+\uD83D\uDED2"), /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick() {
+        return setEditItem(item);
+      },
+      style: {
+        background: "#f1f5f9",
+        border: "none",
+        borderRadius: 7,
+        width: 32,
+        height: 32,
+        cursor: "pointer",
+        fontSize: 13
+      }
+    }, "\u270F\uFE0F"), /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick() {
+        return deleteCatalogItem(item.id);
+      },
+      style: {
+        background: "#fff1f2",
+        border: "none",
+        borderRadius: 7,
+        width: 32,
+        height: 32,
+        cursor: "pointer",
+        fontSize: 13
+      }
+    }, "\uD83D\uDDD1\uFE0F")));
+  }))), tab === "list" && (lists.length === 0 ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: "50px 20px",
+      color: "#94a3b8"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 40,
+      marginBottom: 10
+    }
+  }, "\uD83D\uDED2"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 14
+    }
+  }, "\u05D4\u05E8\u05E9\u05D9\u05DE\u05D4 \u05E8\u05D9\u05E7\u05D4. \u05E2\u05D1\u05D5\u05E8 \u05DC\"\u05DE\u05D5\u05E6\u05E8\u05D9\u05DD\" \u05D5\u05D4\u05D5\u05E1\u05E3 \u05E4\u05E8\u05D9\u05D8\u05D9\u05DD.")) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      marginBottom: 10,
+      padding: "7px 12px",
+      background: "#fff",
+      borderRadius: 10,
+      fontSize: 11,
+      color: "#64748b",
+      boxShadow: "0 1px 3px rgba(0,0,0,.05)",
+      flexWrap: "wrap",
+      alignItems: "center",
+      justifyContent: "space-between"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10,
+      alignItems: "center"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 600
+    }
+  }, "\u05E1\u05DE\u05DC:"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#16a34a"
+    }
+  }, "\uD83D\uDFE2\u05E0\u05E7\u05E0\u05D4"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#d97706"
+    }
+  }, "\uD83D\uDFE1\u05D7\u05DC\u05E7\u05D9"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#dc2626"
+    }
+  }, "\uD83D\uDD34\u05DC\u05D0")), /*#__PURE__*/React.createElement("button", {
+    onClick: shareWhatsApp,
+    style: {
+      background: "#25D366",
+      color: "#fff",
+      border: "none",
+      borderRadius: 8,
+      padding: "4px 10px",
+      fontSize: 11,
+      fontWeight: 700,
+      cursor: "pointer",
+      fontFamily: "inherit",
+      display: "flex",
+      alignItems: "center",
+      gap: 4
+    }
+  }, "\uD83D\uDCE4 \u05E9\u05EA\u05E3 \u05D5\u05D5\u05D8\u05E1\u05D0\u05E4")), multiStore ? storeGroups.map(function (g) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: g.store || "__none",
+      style: {
+        marginBottom: 16
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: 6,
+        padding: "6px 10px",
+        background: "#1e6b8a",
+        borderRadius: 8,
+        color: "#fff"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontWeight: 700,
+        fontSize: 12
+      }
+    }, "\uD83C\uDFEA ", g.store || "ללא חנות"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11
+      }
+    }, fmt(g.plannedTotal))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        flexDirection: "column",
+        gap: 8
+      }
+    }, g.items.map(function (entry, idx) {
+      var globalIdx = lists.findIndex(function (e) {
+        return e.id === entry.id;
+      });
+      return /*#__PURE__*/React.createElement(EntryRow, {
+        key: entry.id,
+        entry: entry,
+        idx: idx,
+        draggableIdx: globalIdx
+      });
+    })));
+  }) : /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 8
+    }
+  }, lists.map(function (entry, idx) {
+    return /*#__PURE__*/React.createElement(EntryRow, {
+      key: entry.id,
+      entry: entry,
+      idx: idx
+    });
+  })))), tab === "archive" && (archive.length === 0 ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: "50px 20px",
+      color: "#94a3b8"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 40,
+      marginBottom: 10
+    }
+  }, "\uD83D\uDCC2"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      fontSize: 14
+    }
+  }, "\u05D4\u05D0\u05E8\u05DB\u05D9\u05D5\u05DF \u05E8\u05D9\u05E7")) : /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 10
+    }
+  }, archive.map(function (session) {
+    var isOpen = !!openArchive[session.id];
+    return /*#__PURE__*/React.createElement("div", {
+      key: session.id,
+      style: {
+        background: "#fff",
+        borderRadius: 14,
+        overflow: "hidden",
+        boxShadow: "0 1px 4px rgba(0,0,0,.07)"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      onClick: function onClick() {
+        return toggleArchiveOpen(session.id);
+      },
+      style: {
+        background: "#1e6b8a",
+        color: "#fff",
+        padding: "11px 14px",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        cursor: "pointer",
+        userSelect: "none"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 8
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 13
+      }
+    }, isOpen ? "▾" : "▸"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontWeight: 700,
+        fontSize: 12
+      }
+    }, "\uD83D\uDCC5 ", session.date), session.stores && /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        opacity: .8,
+        marginTop: 1
+      }
+    }, "\uD83C\uDFEA ", session.stores))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 7
+      }
+    }, session.plannedTotal != null && session.plannedTotal !== session.actualTotal && /*#__PURE__*/React.createElement("div", {
+      style: {
+        textAlign: "left"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 9,
+        opacity: .75
+      }
+    }, "\u05DE\u05EA\u05D5\u05DB\u05E0\u05DF"), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 11,
+        opacity: .7,
+        textDecoration: "line-through"
+      }
+    }, fmt(session.plannedTotal))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        textAlign: "left"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 9,
+        opacity: .75
+      }
+    }, "\u05D1\u05E4\u05D5\u05E2\u05DC"), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontWeight: 800,
+        fontSize: 15
+      }
+    }, fmt(session.actualTotal != null ? session.actualTotal : session.total))), /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick(e) {
+        e.stopPropagation();
+        shareArchiveSession(session);
+      },
+      title: "\u05E9\u05EA\u05E3 \u05DC\u05D5\u05D5\u05D8\u05E1\u05D0\u05E4",
+      style: {
+        background: "rgba(255,255,255,.2)",
+        border: "none",
+        borderRadius: 7,
+        width: 28,
+        height: 28,
+        cursor: "pointer",
+        color: "#fff",
+        fontSize: 14,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }
+    }, "\uD83D\uDCE4"), /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick(e) {
+        e.stopPropagation();
+        restoreFromArchive(session);
+      },
+      title: "\u05E9\u05D7\u05D6\u05E8 \u05DC\u05E8\u05E9\u05D9\u05DE\u05EA \u05E7\u05E0\u05D9\u05D5\u05EA",
+      style: {
+        background: "rgba(255,255,255,.2)",
+        border: "none",
+        borderRadius: 7,
+        width: 28,
+        height: 28,
+        cursor: "pointer",
+        color: "#fff",
+        fontSize: 14,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }
+    }, "\uD83D\uDD04"), /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick(e) {
+        e.stopPropagation();
+        deleteArchiveEntry(session.id);
+      },
+      title: "\u05DE\u05D7\u05E7 \u05E7\u05E0\u05D9\u05D9\u05D4",
+      style: {
+        background: "rgba(255,255,255,.15)",
+        border: "none",
+        borderRadius: 7,
+        width: 28,
+        height: 28,
+        cursor: "pointer",
+        color: "#fff",
+        fontSize: 13,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }
+    }, "\uD83D\uDDD1\uFE0F"))), isOpen && /*#__PURE__*/React.createElement("div", null, session.items.map(function (i) {
+      var st = i.status || "none";
+      return /*#__PURE__*/React.createElement("div", {
+        key: i.id,
+        style: {
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "8px 14px",
+          borderBottom: "1px solid #f1f5f9"
+        }
+      }, /*#__PURE__*/React.createElement("div", {
+        style: {
+          display: "flex",
+          alignItems: "center",
+          gap: 8
+        }
+      }, /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontSize: 13
+        }
+      }, A_ICON[st]), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontWeight: 600,
+          color: st === "red" ? "#94a3b8" : "#1e293b",
+          textDecoration: st === "red" ? "line-through" : "none",
+          fontSize: 12
+        }
+      }, i.itemName), /*#__PURE__*/React.createElement("div", {
+        style: {
+          fontSize: 10,
+          color: "#94a3b8",
+          marginTop: 1
+        }
+      }, A_LBL[st], st === "yellow" && i.actualQty ? " \xB7 ".concat(i.actualQty, "/").concat(i.qty, " \u05D9\u05D7'") : st !== "yellow" ? " \xB7 ".concat(i.qty, " \u05D9\u05D7'") : "", i.store ? " \xB7 ".concat(i.store) : ""))), /*#__PURE__*/React.createElement("div", {
+        style: {
+          textAlign: "left"
+        }
+      }, /*#__PURE__*/React.createElement("div", {
+        style: {
+          fontWeight: 700,
+          color: "#1e293b",
+          fontSize: 12
+        }
+      }, fmt(i.actualPrice != null ? i.actualPrice : i.totalPrice)), st === "yellow" && /*#__PURE__*/React.createElement("div", {
+        style: {
+          fontSize: 10,
+          color: "#94a3b8",
+          textDecoration: "line-through"
+        }
+      }, fmt(i.totalPrice))));
+    })));
+  })))), tab === "list" && lists.length > 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "fixed",
+      bottom: 0,
+      right: 0,
+      left: 0,
+      maxWidth: 640,
+      margin: "0 auto",
+      background: "#fff",
+      borderTop: "1px solid #e2e8f0",
+      padding: "10px 16px",
+      boxShadow: "0 -3px 16px rgba(0,0,0,.08)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: 3
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      color: "#94a3b8"
+    }
+  }, "\u05DE\u05EA\u05D5\u05DB\u05E0\u05DF"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 13,
+      fontWeight: 600,
+      color: "#94a3b8"
+    }
+  }, fmt(plannedTotal))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      color: "#1e293b"
+    }
+  }, "\u05D1\u05E4\u05D5\u05E2\u05DC", !hasAnyStatus ? " (טרם סומן)" : ""), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 20,
+      fontWeight: 800,
+      color: hasAnyStatus ? "#15803d" : "#94a3b8"
+    }
+  }, fmt(hasAnyStatus ? actualTotal : plannedTotal))), /*#__PURE__*/React.createElement("button", {
+    onClick: openFinish,
+    style: {
+      width: "100%",
+      background: "#2d9b5a",
+      color: "#fff",
+      border: "none",
+      borderRadius: 10,
+      padding: "11px 0",
+      fontSize: 14,
+      fontWeight: 700,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u2705 \u05E1\u05D9\u05D9\u05DD \u05E7\u05E0\u05D9\u05D9\u05D4 \u2192 \u05D0\u05E8\u05DB\u05D9\u05D5\u05DF")), editItem !== null && /*#__PURE__*/React.createElement(Modal, {
+    title: editItem.id ? "עריכת מוצר" : "מוצר חדש",
+    onClose: function onClose() {
+      return setEditItem(null);
+    }
+  }, /*#__PURE__*/React.createElement(CatalogItemForm, {
+    item: editItem.id ? editItem : null,
+    categories: categories,
+    allStores: allStores,
+    onSave: saveCatalogItem,
+    onClose: function onClose() {
+      return setEditItem(null);
+    }
+  })), addToList && /*#__PURE__*/React.createElement(AddToListModal, {
+    item: addToList,
+    onAdd: addListItem,
+    onClose: function onClose() {
+      return setAddToList(null);
+    }
+  }), editListEntry && /*#__PURE__*/React.createElement(EditListEntryModal, {
+    entry: editListEntry,
+    onSave: function onSave(e) {
+      updateListEntry(e);
+      setEditListEntry(null);
+    },
+    onClose: function onClose() {
+      return setEditListEntry(null);
+    }
+  }), showStats && /*#__PURE__*/React.createElement(StatsModal, {
+    archive: archive,
+    onClose: function onClose() {
+      return setShowStats(false);
+    }
+  }), finishModal && /*#__PURE__*/React.createElement(FinishStoreModal, {
+    storeGroups: storeGroups,
+    onFinish: function onFinish(selected) {
+      return doArchive(selected);
+    },
+    onCancel: function onCancel() {
+      return setFinishModal(false);
+    }
+  }), confirmDialog && /*#__PURE__*/React.createElement(ConfirmDialog, {
+    message: confirmDialog.message,
+    onConfirm: function onConfirm() {
+      confirmDialog.onConfirm();
+      setConfirmDialog(null);
+    },
+    onCancel: function onCancel() {
+      return setConfirmDialog(null);
+    }
+  }));
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
+</script>
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('sw.js').catch(function(){});
+  });
+}
+</script>
+</body>
+</html>
