@@ -8,7 +8,6 @@
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="apple-mobile-web-app-title" content="קנייות"/>
-<meta name="application-name" content="קנייות"/>
 <meta name="theme-color" content="#1e6b8a"/>
 <link rel="manifest" href="manifest.json"/>
 <link rel="icon" href="icon-192.png"/>
@@ -2260,16 +2259,9 @@ function App() {
   var visibleCatalog = catalog.filter(function (i) {
     return i.name.toLowerCase().includes(catSearch.toLowerCase()) && (!filterCat || i.category === filterCat);
   });
-  if (!loaded) return /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      height: "100vh",
-      color: "#64748b",
-      fontFamily: "sans-serif"
-    }
-  }, "\u05D8\u05D5\u05E2\u05DF...");
+
+  // (ready immediately — localStorage is synchronous)
+
   var tabBtn = function tabBtn(id, label, icon) {
     return /*#__PURE__*/React.createElement("button", {
       onClick: function onClick() {
