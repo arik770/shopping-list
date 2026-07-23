@@ -844,12 +844,14 @@ function CatalogItemForm(_ref5) {
 function AddToListModal(_ref6) {
   var _item$stores3;
   var item = _ref6.item,
+    preStore = _ref6.preStore,
     onAdd = _ref6.onAdd,
     onClose = _ref6.onClose;
   var storeNames = ((_item$stores3 = item.stores) === null || _item$stores3 === void 0 ? void 0 : _item$stores3.map(function (s) {
     return typeof s === "string" ? s : s.name;
   }).filter(Boolean)) || [];
-  var _useState17 = useState(storeNames[0] || ""),
+  var defaultStore = preStore && storeNames.includes(preStore) ? preStore : storeNames[0] || "";
+  var _useState17 = useState(defaultStore),
     _useState18 = _slicedToArray(_useState17, 2),
     storeName = _useState18[0],
     setStoreName = _useState18[1];
@@ -1962,18 +1964,22 @@ function App() {
     _useState58 = _slicedToArray(_useState57, 2),
     filterCat = _useState58[0],
     setFilterCat = _useState58[1];
-  var _useState59 = useState(null),
+  var _useState59 = useState(""),
     _useState60 = _slicedToArray(_useState59, 2),
-    dragIdx = _useState60[0],
-    setDragIdx = _useState60[1];
+    filterStore = _useState60[0],
+    setFilterStore = _useState60[1];
   var _useState61 = useState(null),
     _useState62 = _slicedToArray(_useState61, 2),
-    dragOver = _useState62[0],
-    setDragOver = _useState62[1];
+    dragIdx = _useState62[0],
+    setDragIdx = _useState62[1];
   var _useState63 = useState(null),
     _useState64 = _slicedToArray(_useState63, 2),
-    dragList = _useState64[0],
-    setDragList = _useState64[1];
+    dragOver = _useState64[0],
+    setDragOver = _useState64[1];
+  var _useState65 = useState(null),
+    _useState66 = _slicedToArray(_useState65, 2),
+    dragList = _useState66[0],
+    setDragList = _useState66[1];
   useEffect(function () {
     save(KEYS.catalog, catalog);
   }, [catalog]);
@@ -2256,8 +2262,28 @@ function App() {
       return s.name;
     }).filter(Boolean).join(", ");
   };
+
+  // Get price/bulk to display for an item given current store filter
+  var getDisplayPricing = function getDisplayPricing(item) {
+    if (!filterStore) return {
+      price: item.price,
+      bulk: item.bulk,
+      shared: item.sharedPricing !== false
+    };
+    return _objectSpread(_objectSpread({}, getStorePricing(item, filterStore)), {}, {
+      shared: true
+    });
+  };
   var visibleCatalog = catalog.filter(function (i) {
-    return i.name.toLowerCase().includes(catSearch.toLowerCase()) && (!filterCat || i.category === filterCat);
+    if (!i.name.toLowerCase().includes(catSearch.toLowerCase())) return false;
+    if (filterCat && i.category !== filterCat) return false;
+    if (filterStore) {
+      var names = (i.stores || []).map(function (s) {
+        return typeof s === "string" ? s : s.name;
+      });
+      if (!names.includes(filterStore)) return false;
+    }
+    return true;
   });
 
   // (ready immediately — localStorage is synchronous)
@@ -2426,6 +2452,11 @@ function App() {
       }
     }));
   };
+  var _useState67 = useState("list"),
+    _useState68 = _slicedToArray(_useState67, 2),
+    catalogView = _useState68[0],
+    setCatalogView = _useState68[1]; // "list" | "grid"
+
   return /*#__PURE__*/React.createElement("div", {
     dir: "rtl",
     style: {
@@ -2504,6 +2535,26 @@ function App() {
     placeholder: "\uD83D\uDD0D \u05D7\u05E4\u05E9 \u05DE\u05D5\u05E6\u05E8..."
   }), /*#__PURE__*/React.createElement("button", {
     onClick: function onClick() {
+      return setCatalogView(function (v) {
+        return v === "list" ? "grid" : "list";
+      });
+    },
+    title: catalogView === "list" ? "תצוגת קוביות" : "תצוגת רשימה",
+    style: {
+      background: "#fff",
+      border: "1.5px solid #e2e8f0",
+      borderRadius: 9,
+      width: 36,
+      height: 36,
+      cursor: "pointer",
+      fontSize: 16,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexShrink: 0
+    }
+  }, catalogView === "list" ? "⊞" : "☰"), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
       return setEditItem({});
     },
     style: {
@@ -2522,7 +2573,7 @@ function App() {
       display: "flex",
       gap: 6,
       overflowX: "auto",
-      marginBottom: 10,
+      marginBottom: 6,
       paddingBottom: 3
     }
   }, [""].concat(_toConsumableArray(categories)).map(function (c) {
@@ -2545,6 +2596,34 @@ function App() {
         fontFamily: "inherit"
       }
     }, c || "הכל");
+  })), allStores.length > 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      overflowX: "auto",
+      marginBottom: 10,
+      paddingBottom: 3
+    }
+  }, [""].concat(_toConsumableArray(allStores)).map(function (s) {
+    return /*#__PURE__*/React.createElement("button", {
+      key: s || "__all",
+      onClick: function onClick() {
+        return setFilterStore(s);
+      },
+      style: {
+        padding: "4px 11px",
+        borderRadius: 16,
+        border: "1.5px solid",
+        borderColor: filterStore === s ? "#e8750a" : "#e2e8f0",
+        background: filterStore === s ? "#fff7ed" : "#fff",
+        color: filterStore === s ? "#e8750a" : "#64748b",
+        fontSize: 12,
+        cursor: "pointer",
+        whiteSpace: "nowrap",
+        fontWeight: filterStore === s ? 700 : 400,
+        fontFamily: "inherit"
+      }
+    }, s ? "🏪 " + s : "כל החנויות");
   })), visibleCatalog.length === 0 ? /*#__PURE__*/React.createElement("div", {
     style: {
       textAlign: "center",
@@ -2561,7 +2640,170 @@ function App() {
       margin: 0,
       fontSize: 14
     }
-  }, catSearch ? "לא נמצאו מוצרים" : 'לחץ "+" להוסיף')) : /*#__PURE__*/React.createElement("div", {
+  }, catSearch ? "לא נמצאו מוצרים" : 'לחץ "+" להוסיף')) : catalogView === "grid" ?
+  /*#__PURE__*/
+  /* ── GRID VIEW ── */
+  React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 8
+    }
+  }, visibleCatalog.map(function (item, idx) {
+    var storeDisplay = getStoreDisplay(item);
+    var _getDisplayPricing = getDisplayPricing(item),
+      dPrice = _getDisplayPricing.price,
+      dBulk = _getDisplayPricing.bulk,
+      dShared = _getDisplayPricing.shared;
+    return /*#__PURE__*/React.createElement("div", {
+      key: item.id,
+      draggable: true,
+      onDragStart: function onDragStart() {
+        return _onDragStart(idx, "catalog");
+      },
+      onDragEnter: function onDragEnter() {
+        return _onDragEnter(idx);
+      },
+      onDragEnd: onDragEnd,
+      onDragOver: function onDragOver(e) {
+        return e.preventDefault();
+      },
+      style: {
+        background: "#fff",
+        borderRadius: 12,
+        padding: "10px 10px 8px",
+        boxShadow: "0 1px 3px rgba(0,0,0,.06)",
+        border: "2px solid ".concat(dragOver === idx && dragList === "catalog" ? "#1e6b8a" : "transparent"),
+        display: "flex",
+        flexDirection: "column",
+        gap: 6,
+        position: "relative"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center"
+      }
+    }, /*#__PURE__*/React.createElement(DragHandle, {
+      style: {
+        fontSize: 15,
+        color: "#cbd5e1"
+      }
+    }), item.category && /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 9,
+        background: "#e0f2fe",
+        color: "#1e6b8a",
+        borderRadius: 10,
+        padding: "1px 6px",
+        fontWeight: 600,
+        maxWidth: "70%",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap"
+      }
+    }, item.category)), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontWeight: 700,
+        fontSize: 12,
+        color: "#1e293b",
+        lineHeight: 1.3
+      }
+    }, item.name), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 11,
+        color: "#64748b",
+        display: "flex",
+        flexDirection: "column",
+        gap: 2
+      }
+    }, dShared ? /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "#15803d",
+        fontWeight: 600
+      }
+    }, fmt(dPrice)) : /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 10
+      }
+    }, "\u05DC\u05E4\u05D9 \u05D7\u05E0\u05D5\u05EA"), dShared && dBulk && /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "#e8750a",
+        fontSize: 10
+      }
+    }, "\uD83C\uDFF7\uFE0F", dBulk.qty, " \u05D1-", fmt(dBulk.price)), !filterStore && storeDisplay && /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 10,
+        color: "#94a3b8",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap"
+      }
+    }, "\uD83C\uDFEA", storeDisplay)), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 4,
+        marginTop: "auto",
+        paddingTop: 4,
+        borderTop: "1px solid #f1f5f9"
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick() {
+        return setAddToList({
+          item: item,
+          preStore: filterStore || null
+        });
+      },
+      style: {
+        flex: 1,
+        background: "#f0fdf4",
+        border: "none",
+        borderRadius: 6,
+        height: 28,
+        cursor: "pointer",
+        fontSize: 12,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }
+    }, "+\uD83D\uDED2"), /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick() {
+        return setEditItem(item);
+      },
+      style: {
+        flex: 1,
+        background: "#f1f5f9",
+        border: "none",
+        borderRadius: 6,
+        height: 28,
+        cursor: "pointer",
+        fontSize: 12,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }
+    }, "\u270F\uFE0F"), /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick() {
+        return deleteCatalogItem(item.id);
+      },
+      style: {
+        flex: 1,
+        background: "#fff1f2",
+        border: "none",
+        borderRadius: 6,
+        height: 28,
+        cursor: "pointer",
+        fontSize: 12,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }
+    }, "\uD83D\uDDD1\uFE0F")));
+  })) :
+  /*#__PURE__*/
+  /* ── LIST VIEW ── */
+  React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "column",
@@ -2569,6 +2811,10 @@ function App() {
     }
   }, visibleCatalog.map(function (item, idx) {
     var storeDisplay = getStoreDisplay(item);
+    var _getDisplayPricing2 = getDisplayPricing(item),
+      dPrice = _getDisplayPricing2.price,
+      dBulk = _getDisplayPricing2.bulk,
+      dShared = _getDisplayPricing2.shared;
     return /*#__PURE__*/React.createElement("div", {
       key: item.id,
       draggable: true,
@@ -2628,12 +2874,12 @@ function App() {
         gap: 8,
         flexWrap: "wrap"
       }
-    }, item.sharedPricing !== false && /*#__PURE__*/React.createElement("span", null, "\uD83D\uDCB0", fmt(item.price)), item.sharedPricing !== false && item.bulk && /*#__PURE__*/React.createElement("span", {
+    }, dShared ? /*#__PURE__*/React.createElement("span", null, "\uD83D\uDCB0", fmt(dPrice)) : /*#__PURE__*/React.createElement("span", null, "\uD83D\uDCB0 \u05DC\u05E4\u05D9 \u05D7\u05E0\u05D5\u05EA"), dShared && dBulk && /*#__PURE__*/React.createElement("span", {
       style: {
         color: "#e8750a",
         fontWeight: 600
       }
-    }, "\uD83C\uDFF7\uFE0F", item.bulk.qty, " \u05D1-", fmt(item.bulk.price)), item.sharedPricing === false && /*#__PURE__*/React.createElement("span", null, "\uD83D\uDCB0 \u05DC\u05E4\u05D9 \u05D7\u05E0\u05D5\u05EA"), storeDisplay && /*#__PURE__*/React.createElement("span", null, "\uD83C\uDFEA", storeDisplay))), /*#__PURE__*/React.createElement("div", {
+    }, "\uD83C\uDFF7\uFE0F", dBulk.qty, " \u05D1-", fmt(dBulk.price)), !filterStore && storeDisplay && /*#__PURE__*/React.createElement("span", null, "\uD83C\uDFEA", storeDisplay))), /*#__PURE__*/React.createElement("div", {
       style: {
         display: "flex",
         gap: 5,
@@ -2641,7 +2887,10 @@ function App() {
       }
     }, /*#__PURE__*/React.createElement("button", {
       onClick: function onClick() {
-        return setAddToList(item);
+        return setAddToList({
+          item: item,
+          preStore: filterStore || null
+        });
       },
       style: {
         background: "#f0fdf4",
@@ -3095,7 +3344,8 @@ function App() {
       return setEditItem(null);
     }
   })), addToList && /*#__PURE__*/React.createElement(AddToListModal, {
-    item: addToList,
+    item: addToList.item,
+    preStore: addToList.preStore,
     onAdd: addListItem,
     onClose: function onClose() {
       return setAddToList(null);
